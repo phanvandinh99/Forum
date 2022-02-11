@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>New Member Introductions</title>
+    <description>New Member Introductions</description>
+    <pubDate>Wed, 09 Feb 2022 14:39:20 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 14:39:20 +0000</lastBuildDate>
+    <generator>ThemeHouse XenForo 2 Themes Demo</generator>
+    <link>https://demo.themehouse.com/xf2/themes/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://demo.themehouse.com/xf2/themes/forums/new-member-introductions.2/index.rss"/>
+    <item>
+      <title>Hiya</title>
+      <pubDate>Tue, 14 Nov 2017 22:56:28 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/hiya.2/</link>
+      <guid isPermaLink="false">2</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/new-member-introductions.2/"><![CDATA[New Member Introductions]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">Hiya folks, my name is Dalton Prock. I am so new to this community! Why not a hello huh? <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="smilie smilie--sprite smilie--sprite1" alt=":)" title="Smile    :)" loading="lazy" data-shortname=":)" /></div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+  </channel>
+</rss>

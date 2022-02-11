@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Digital Cameras</title>
+    <description>Digital Cameras</description>
+    <pubDate>Wed, 09 Feb 2022 14:39:52 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 14:39:52 +0000</lastBuildDate>
+    <generator>ThemeHouse XenForo 2 Themes Demo</generator>
+    <link>https://demo.themehouse.com/xf2/themes/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://demo.themehouse.com/xf2/themes/forums/digital-cameras.9/index.rss"/>
+    <item>
+      <title>Freelance photographer looking to optimize workflow</title>
+      <pubDate>Tue, 13 Nov 2018 20:34:10 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/freelance-photographer-looking-to-optimize-workflow.73/</link>
+      <guid isPermaLink="false">73</guid>
+      <author>invalid@example.com (Ian Hitt)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/digital-cameras.9/"><![CDATA[Digital Cameras]]></category>
+      <dc:creator>Ian Hitt</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">I've been a photographer the last 6 years and have been contemplating investing in a photo printer. Until now, I've left the printing to the professionals but I'd like to handle my clients prints from now on. Does anyone have suggestions for photo printers that won't cost a fortune but quality is high priority?</div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>What type of camera do you have?</title>
+      <pubDate>Tue, 14 Nov 2017 23:05:06 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/what-type-of-camera-do-you-have.6/</link>
+      <guid isPermaLink="false">6</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/digital-cameras.9/"><![CDATA[Digital Cameras]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">What type of camera do you have? Tell us the model number, year it was made, etc.</div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+  </channel>
+</rss>

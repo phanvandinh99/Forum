@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Video Games &amp; Consoles</title>
+    <description>Video Games &amp; Consoles</description>
+    <pubDate>Wed, 09 Feb 2022 14:39:48 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 14:39:48 +0000</lastBuildDate>
+    <generator>ThemeHouse XenForo 2 Themes Demo</generator>
+    <link>https://demo.themehouse.com/xf2/themes/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://demo.themehouse.com/xf2/themes/forums/video-games-consoles.7/index.rss"/>
+    <item>
+      <title>Post a video game trailer</title>
+      <pubDate>Tue, 14 Nov 2017 23:02:31 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/post-a-video-game-trailer.4/</link>
+      <guid isPermaLink="false">4</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/video-games-consoles.7/"><![CDATA[Video Games & Consoles]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">Post some of your favorite video game trailers.<br />
+<div class="bbMediaWrapper">
+	<div class="bbMediaWrapper-inner">
+		<iframe src="https://www.youtube.com/embed/-CvJQxTKgUs?wmode=opaque"
+				width="560" height="315"
+				frameborder="0" allowfullscreen="true"></iframe>
+	</div>
+</div></div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+  </channel>
+</rss>

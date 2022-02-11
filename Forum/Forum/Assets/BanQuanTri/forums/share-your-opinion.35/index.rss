@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Share your opinion!</title>
+    <description>Share your opinion!</description>
+    <pubDate>Wed, 09 Feb 2022 14:39:07 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 14:39:07 +0000</lastBuildDate>
+    <generator>ThemeHouse XenForo 2 Themes Demo</generator>
+    <link>https://demo.themehouse.com/xf2/themes/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://demo.themehouse.com/xf2/themes/forums/share-your-opinion.35/index.rss"/>
+    <item>
+      <title>Show recommendations</title>
+      <pubDate>Wed, 10 Mar 2021 19:24:46 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/show-recommendations.77/</link>
+      <guid isPermaLink="false">77</guid>
+      <author>invalid@example.com (Megan Bergner)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/share-your-opinion.35/"><![CDATA[Share your opinion!]]></category>
+      <dc:creator>Megan Bergner</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">Do you recommend any shows? Netflix or Hulu, please <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="smilie smilie--sprite smilie--sprite1" alt=":)" title="Smile    :)" loading="lazy" data-shortname=":)" /></div>]]></content:encoded>
+      <slash:comments>5</slash:comments>
+    </item>
+    <item>
+      <title>Favorite Cookie?</title>
+      <pubDate>Wed, 07 Oct 2020 14:43:26 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/favorite-cookie.75/</link>
+      <guid isPermaLink="false">75</guid>
+      <author>invalid@example.com (Megan Bergner)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/share-your-opinion.35/"><![CDATA[Share your opinion!]]></category>
+      <dc:creator>Megan Bergner</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">What cookie do you like best?<br />
+<ol>
+<li data-xf-list-type="ol">Oreos</li>
+<li data-xf-list-type="ol">Chips Ahoy</li>
+<li data-xf-list-type="ol">Homemade chocolate chip</li>
+<li data-xf-list-type="ol">Other</li>
+</ol></div>]]></content:encoded>
+      <slash:comments>1</slash:comments>
+    </item>
+  </channel>
+</rss>

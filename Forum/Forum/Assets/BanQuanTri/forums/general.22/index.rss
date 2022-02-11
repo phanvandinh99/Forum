@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>General</title>
+    <description>General</description>
+    <pubDate>Wed, 09 Feb 2022 14:41:30 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 14:41:30 +0000</lastBuildDate>
+    <generator>ThemeHouse XenForo 2 Themes Demo</generator>
+    <link>https://demo.themehouse.com/xf2/themes/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://demo.themehouse.com/xf2/themes/forums/general.22/index.rss"/>
+    <item>
+      <title>Cats or Dogs?</title>
+      <pubDate>Fri, 10 Aug 2018 19:27:20 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/cats-or-dogs.46/</link>
+      <guid isPermaLink="false">46</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/general.22/"><![CDATA[General]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">Which one do you like more? Cats or dogs? Fill out the poll above!</div>]]></content:encoded>
+      <slash:comments>1</slash:comments>
+    </item>
+    <item>
+      <title>Poll Thread</title>
+      <pubDate>Wed, 18 Apr 2018 20:19:08 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/poll-thread.67/</link>
+      <guid isPermaLink="false">67</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/general.22/"><![CDATA[General]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">Enough said it's a poll thread!</div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Locked Thread</title>
+      <pubDate>Tue, 14 Nov 2017 23:06:07 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/locked-thread.8/</link>
+      <guid isPermaLink="false">8</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/general.22/"><![CDATA[General]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">This is a locked thread.</div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title>Sticky Thread</title>
+      <pubDate>Tue, 14 Nov 2017 23:05:39 +0000</pubDate>
+      <link>https://demo.themehouse.com/xf2/themes/threads/sticky-thread.7/</link>
+      <guid isPermaLink="false">7</guid>
+      <author>invalid@example.com (Dalton Prock)</author>
+      <category domain="https://demo.themehouse.com/xf2/themes/forums/general.22/"><![CDATA[General]]></category>
+      <dc:creator>Dalton Prock</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">This is a sticky thread.</div>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+  </channel>
+</rss>

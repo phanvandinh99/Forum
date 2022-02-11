@@ -77,3 +77,7 @@ C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\obj\Debug\Forum.csproj.Core
 C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\obj\Debug\Forum.csproj.CopyComplete
 C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\obj\Debug\Forum.dll
 C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\obj\Debug\Forum.pdb
+C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\bin\EntityFramework.dll
+C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\bin\EntityFramework.SqlServer.dll
+C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\bin\EntityFramework.xml
+C:\Users\phanv\OneDrive\Máy tính\Forum\Forum\Forum\bin\EntityFramework.SqlServer.xml
