@@ -17,7 +17,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
         public ActionResult BaiVietChuDe(int iMaChuDe)
         {
             var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == iMaChuDe);
-            ViewBag.BaiViet = db.BaiViets.Where(n => n.MaChuDe == iMaChuDe).OrderByDescending(n => n.MaBaiViet).ToList();
+            ViewBag.BaiViet = db.BaiViets.Where(n => n.MaChuDe == iMaChuDe &n.TrangThai==0).OrderByDescending(n => n.MaBaiViet).ToList();
             return View(chuDe);
         }
 

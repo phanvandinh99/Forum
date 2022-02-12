@@ -1,0 +1,8 @@
+﻿@using Forum.Models
+@model IEnumerable<DanhMuc>
+
+@foreach (var item in Model)
+{
+    <a href="/BanQuanTri/Home/DanhMucChuDe?iMaDanhMuc=@item.MaDanhMuc" class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy" rel="nofollow" data-nav-id="xfmgNewMedia"><span>@item.TenDanhMuc</span></a>
+}
+

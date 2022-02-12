@@ -763,6 +763,9 @@
     <Content Include="Areas\BanQuanTri\Views\ThongBao\BaiViet.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\ThongBao\ThatBai.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\BaiViet\BaiViet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\Home\DanhMuc_Par.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\Home\DanhMucChuDe.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\Home\BaiVietMoi.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
