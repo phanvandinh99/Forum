@@ -13,11 +13,18 @@ namespace Forum
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
+            // CHẠY VIEW KHÁCH HÀNG
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { Controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Forum.Areas.BanQuanTri.Controllers" }
+            ).DataTokens.Add("Area", "BanQuanTri");
         }
     }
 }

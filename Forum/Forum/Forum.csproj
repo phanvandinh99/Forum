@@ -130,10 +130,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BanQuanTri\BanQuanTriAreaRegistration.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\BaiVietController.cs" />
+    <Compile Include="Areas\BanQuanTri\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\DangNhapController.cs" />
+    <Compile Include="Areas\BanQuanTri\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\HomeController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\ThongBaoController.cs" />
-    <Compile Include="Areas\ThanhVien\ThanhVienAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -686,7 +687,6 @@
     <Content Include="Assets\BanQuanTri\styles\uix\images\uix-brandmark.png" />
     <Content Include="Assets\BanQuanTri\styles\uix\images\uix-logo.png" />
     <Content Include="Assets\BanQuanTri\styles\uix\images\welcome-banner.png" />
-    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -699,19 +699,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\BanQuanTri\Data\" />
-    <Folder Include="Areas\ThanhVien\Controllers\" />
-    <Folder Include="Areas\ThanhVien\Views\Shared\" />
     <Folder Include="Assets\BanQuanTri\js\themehouse\acui\vendor\hover-intent\" />
     <Folder Include="Assets\BanQuanTri\js\themehouse\global\" />
     <Folder Include="Assets\BanQuanTri\js\themehouse\styleswitch\" />
     <Folder Include="Assets\BanQuanTri\js\themehouse\uix\vendor\hover-intent\" />
     <Folder Include="Assets\BanQuanTri\js\vendor\jquery\" />
     <Folder Include="Assets\BanQuanTri\js\xf\" />
-    <Folder Include="Assets\ThanhVien\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\BanQuanTri\Views\web.config" />
-    <Content Include="Areas\ThanhVien\Views\web.config" />
     <Content Include="Assets\BanQuanTri\styles\acui\fonts\icons\material-icons\fonts\materialdesignicons-webfontd41d.eot" />
     <Content Include="Assets\BanQuanTri\styles\acui\fonts\icons\material-icons\fonts\materialdesignicons-webfonte910.eot" />
     <Content Include="Assets\BanQuanTri\styles\acui\fonts\icons\material-icons\fonts\materialdesignicons-webfonte910.ttf" />
@@ -766,6 +762,19 @@
     <Content Include="Areas\BanQuanTri\Views\Home\DanhMuc_Par.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\Home\DanhMucChuDe.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\Home\BaiVietMoi.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DangNhap\DangKy.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ThongBao\ThanhCong.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DangNhap\CapNhat.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\BaiVietCuaBan.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\BaiVietMoi.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\ChuDe_Par.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\BaiVietMoiTheoChuDe.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\ChuDe.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DanhMuc\DanhMuc.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\ThemMoi.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\CapNhat.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\XemChiTiet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ChuDe\Xoa.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

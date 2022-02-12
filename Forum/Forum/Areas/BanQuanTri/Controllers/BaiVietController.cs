@@ -91,11 +91,11 @@ namespace Forum.Areas.BanQuanTri.Controllers
         [ValidateInput(false)]
         public ActionResult ThemBinhLuan(BinhLuan model, FormCollection f, string strURL)
         {
+            int mabaiviet = int.Parse(f["txtMaBaiViet"].ToString());
             if (Session["TaiKhoan"] == null)
             {
                 return RedirectToAction("TrangDangNhap", "DangNhap");
             }
-            int mabaiviet = int.Parse(f["txtMaBaiViet"].ToString());
             NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
             BinhLuan bl = new BinhLuan();
             bl.NoiDungBinhLuan = model.NoiDungBinhLuan;
@@ -113,6 +113,23 @@ namespace Forum.Areas.BanQuanTri.Controllers
             db.BinhLuans.Remove(binhLuan);
             db.SaveChanges();
             return Redirect(strURL);
+        }
+        // Bài Viết Của Bạn
+        public ActionResult BaiVietCuaBan()
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+            var baiViet = db.BaiViets.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n=>n.MaBaiViet);
+            return View(baiViet);
+        } 
+        // Hiển thị bài viết mới
+        public ActionResult BaiVietMoi()
+        {
+            var baiViet = db.BaiViets.ToList().OrderByDescending(n=>n.NgayDang);
+            return View(baiViet);
         }
     }
 }

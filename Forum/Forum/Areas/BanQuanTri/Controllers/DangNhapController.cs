@@ -61,6 +61,56 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             Session["TaiKhoan"] = null;
             return RedirectToAction("TrangDangNhap", "DangNhap");
+        }  
+        // Đăng ký tài khoản
+        public ActionResult DangKy()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangKy(NguoiDung model)
+        {
+            try
+            {
+                NguoiDung nd = new NguoiDung();
+                nd.TaiKhoan = model.TaiKhoan;
+                nd.MatKhau = model.MatKhau;
+                nd.Ho = model.Ho;
+                nd.Ten = model.Ten;
+                nd.NgaySinh = model.NgaySinh;
+                nd.GioiTinh = model.GioiTinh;
+                nd.TrangThai = 0;
+                nd.HinhAnh = "AnhMacDinh.png";
+                nd.DiemThanhTich = 0;
+                nd.SoBaiViet = 0;
+                nd.MaQuyen = 2;
+                db.NguoiDungs.Add(nd);
+                db.SaveChanges();
+                return RedirectToAction("ThanhCong", "ThongBao");
+            }
+            catch
+            {
+                return RedirectToAction("ThatBai", "ThongBao");
+            }
+        }
+        // Cập nhật thông tin cá nhân
+        public ActionResult CapNhat(string staiKhoan)
+        {
+            var nguoiDung = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == staiKhoan);
+            return View(nguoiDung);
+        } 
+        [HttpPost]
+        public ActionResult CapNhat(NguoiDung model)
+        {
+            var nguoiDung = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == model.TaiKhoan);
+            nguoiDung.MatKhau = model.MatKhau;
+            nguoiDung.Ho = model.Ho;
+            nguoiDung.Ten = model.Ten;
+            nguoiDung.NgaySinh = model.NgaySinh;
+            nguoiDung.GioiTinh = model.GioiTinh;
+            Session["TaiKhoan"] = nguoiDung;
+            db.SaveChanges();
+            return RedirectToAction("ThanhCong", "ThongBao");
         }
     }
 }

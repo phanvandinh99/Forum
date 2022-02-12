@@ -15,6 +15,10 @@ namespace Forum.Areas.BanQuanTri.Controllers
         public ActionResult ThatBai() // Thao tác thất bại
         {
             return View();
+        } 
+        public ActionResult ThanhCong() // Thao tác thành công
+        {
+            return View();
         }
     }
 }

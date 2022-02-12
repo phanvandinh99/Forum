@@ -82,6 +82,10 @@
     <link href="~/Assets/BanQuanTri/css/cssfb87.css" rel="stylesheet" /> @*Css bài viết chủ đề*@
     <link href="~/Assets/BanQuanTri/css/cssde6d.css" rel="stylesheet" /> @*Css Chi tiết bài viết*@
     <script src="~/Assets/BanQuanTri/ckeditor/ckeditor.js"></script> @*Ckediter*@
+    @*Select*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+
 
     <!-- #endregion -->
 </head>
@@ -335,9 +339,11 @@
                                     </li>
                                     <li>
                                         <div class="p-navEl u-ripple " data-has-children="true">
-                                            <a href="whats-new/index.html"
+                                            <a href="/BanQuanTri/BaiViet/BaiVietMoi"
                                                class="p-navEl-link p-navEl-link--splitMenu "
-                                               data-nav-id="whatsNew"><span>Bài Viết Mới</span></a>
+                                               data-nav-id="whatsNew">
+                                                <span>Bài Viết Mới</span>
+                                            </a>
                                             <a data-xf-key="3"
                                                data-xf-click="menu"
                                                data-menu-pos-ref="< .p-navEl"
@@ -350,30 +356,7 @@
                                             </a>
                                             <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
                                                 <div class="menu-content">
-                                                    <a href="whats-new/posts/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="whatsNewPosts"><span>New posts</span></a>
-                                                    <a href="whats-new/media/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="xfmgWhatsNewNewMedia"><span>New media</span></a>
-                                                    <a href="whats-new/media-comments/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="xfmgWhatsNewMediaComments"><span>New media comments</span></a>
-                                                    <a href="whats-new/resources/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="xfrmNewResources"><span>New resources</span></a>
-                                                    <a href="whats-new/profile-posts/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="whatsNewProfilePosts"><span>New profile posts</span></a>
-                                                    <a href="whats-new/latest-activity.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="latestActivity"><span>Latest activity</span></a>
+                                                    @Html.Action("ChuDe_Par", "ChuDe")
                                                 </div>
                                             </div>
                                         </div>
@@ -396,26 +379,15 @@
                                             <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
                                                 <div class="menu-content">
                                                     @Html.Action("DanhMuc_Par", "Home")
-                                                    @*<a href="whats-new/media/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="xfmgNewMedia"><span>New media</span></a>
-                                                    <a href="whats-new/media-comments/index.html"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="xfmgNewComments"><span>New comments</span></a>
-                                                    <a href="search/index4784.html?type=xfmg_media"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfmgSearchMedia"><span>Search media</span></a>*@
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="p-navEl u-ripple " data-has-children="true">
-                                            <a href="resources/index.html"
+                                            <a href=""
                                                class="p-navEl-link p-navEl-link--splitMenu "
-                                               data-nav-id="xfrm"><span>Resources</span></a>
+                                               data-nav-id="xfrm"><span>Quản Lý</span></a>
                                             <a data-xf-key="5"
                                                data-xf-click="menu"
                                                data-menu-pos-ref="< .p-navEl"
@@ -428,12 +400,12 @@
                                             </a>
                                             <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
                                                 <div class="menu-content">
-                                                    <a href="resources/latest-reviews.html"
+                                                    <a href="/BanQuanTri/DanhMuc/DanhMuc"
                                                        class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfrmLatestReviews"><span>Latest reviews</span></a>
-                                                    <a href="search/index3964.html?type=resource"
+                                                       data-nav-id="xfrmLatestReviews"><span>Danh Mục</span></a>
+                                                    <a href="/BanQuanTri/ChuDe/ChuDe"
                                                        class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfrmSearchResources"><span>Search resources</span></a>
+                                                       data-nav-id="xfrmSearchResources"><span>Chủ Đề</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,7 +453,7 @@
                                         <span class="p-navgroup-linkText">Đăng Nhập</span>
                                     </a>
                                     <div class="menu menu--structural menu--medium" data-menu="menu" aria-hidden="true" data-href="/xf2/themes/login/"></div>
-                                    <a href="register/index.html" class="p-navgroup-link u-ripple p-navgroup-link--textual p-navgroup-link--register" data-xf-click="overlay" data-follow-redirects="on">
+                                    <a href="/BanQuanTri/DangNhap/DangKy" class="p-navgroup-link u-ripple p-navgroup-link--textual p-navgroup-link--register">
                                         <i></i>
                                         <span class="p-navgroup-linkText">Đăng Ký</span>
                                     </a>
@@ -489,7 +461,7 @@
                                 else if (Session["TaiKhoan"] != null)
                                 {
                                     NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
-                                    <a href="/BanQuanTri/DangNhap/TrangDangNhap" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--logIn">
+                                    <a href="/BanQuanTri/DangNhap/CapNhat?sTaiKhoan=@tk.TaiKhoan" class="p-navgroup-link p-navgroup-link--textual p-navgroup-link--logIn">
                                         <i></i>
                                         <span class="p-navgroup-linkText">Xin Chào: @tk.Ho @tk.Ten</span>
                                     </a>
@@ -629,20 +601,20 @@
                                 <ul class="p-sectionLinks-list">
                                     <li>
                                         <div class="p-navEl u-ripple ">
-                                            <a href="whats-new/posts/index.html"
+                                            <a href="/BanQuanTri/BaiViet/BaiVietMoi"
                                                class="p-navEl-link  "
                                                data-xf-key="alt+1"
                                                data-nav-id="newPosts"><span>Bài Viết Mới</span></a>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="p-navEl u-ripple ">
-                                            <a href="search/index4009.html?type=post"
-                                               class="p-navEl-link  "
-                                               data-xf-key="alt+2"
-                                               data-nav-id="searchForums"><span>Search forums</span></a>
-                                        </div>
-                                    </li>
+                                    @*<li>
+                                            <div class="p-navEl u-ripple ">
+                                                <a href="search/index4009.html?type=post"
+                                                   class="p-navEl-link  "
+                                                   data-xf-key="alt+2"
+                                                   data-nav-id="searchForums"><span>Search forums</span></a>
+                                            </div>
+                                        </li>*@
                                 </ul>
                             </div>
                         </div>
@@ -708,7 +680,18 @@
                                 <div class="block-container block-container--noStripRadius">
                                     <h3 class="block-minorHeader">Người Dùng</h3>
                                     <div class="block-body">
-                                        <a class="blockLink rippleButton" href="login/index.html">Đăng Nhập</a>
+                                        @if (Session["TaiKhoan"] == null)
+                                        {
+                                            <a class="blockLink rippleButton" href="/BanQuanTri/DangNhap/TrangDangNhap">Đăng Nhập</a>
+                                            <a class="blockLink rippleButton" href="/BanQuanTri/DangNhap/DangKy">Đăng Ký</a>
+                                        }
+                                        else
+                                        {
+                                            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+                                            <a class="blockLink rippleButton" href="/BanQuanTri/DangNhap/CapNhat?sTaiKhoan=@tk.TaiKhoan">@tk.Ho @tk.Ten (Cập nhật)</a>
+                                            <a class="blockLink rippleButton" href="/BanQuanTri/DangNhap/DangXuat">Đăng Xuất</a>
+                                            <a class="blockLink rippleButton" href="/BanQuanTri/BaiViet/BaiVietCuaBan">Bài Viết Của Bạn</a>
+                                        }
                                     </div>
                                 </div>
                             </div>

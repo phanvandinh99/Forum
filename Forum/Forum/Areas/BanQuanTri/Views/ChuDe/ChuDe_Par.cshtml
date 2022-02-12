@@ -1,0 +1,7 @@
+﻿@using Forum.Models
+@model IEnumerable<ChuDe>
+
+@foreach (var item in Model)
+{
+    <a href="/BanQuanTri/ChuDe/BaiVietMoiTheoChuDe?iMaChuDe=@item.MaChuDe" class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy" rel="nofollow" data-nav-id="xfmgNewMedia"><span>@item.TenChuDe (@item.SoBaiViet)</span></a>
+}

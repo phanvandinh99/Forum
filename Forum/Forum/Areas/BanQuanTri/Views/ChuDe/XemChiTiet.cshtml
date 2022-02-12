@@ -1,0 +1,49 @@
+﻿@using Forum.Models
+@model ChuDe
+@{
+    ViewBag.Title = "Xem Chi Tiết";
+    Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-body">
+    <div class="p-body-inner ">
+        <!--XF:EXTRA_OUTPUT-->
+        <div class="breadcrumb ">
+            <div class="pageContent">
+                <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/Home/Index" itemprop="item">
+                            <span itemprop="name">Trang Chủ</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/xf2/themes/categories/general.1/" itemprop="item">
+                            <span itemprop="name"> Xem Chi Tiết Chủ Đề</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <noscript>
+            <div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript is disabled. For a better experience, please enable JavaScript in your browser before proceeding.</div>
+        </noscript>
+        <div uix_component="MainContainer" class="uix_contentWrapper">
+            <div class="p-body-main">
+                <div uix_component="MainContent" class="p-body-content">
+                    <!-- ABOVE MAIN CONTENT -->
+                        <div class="p-body-pageContent">
+                            <div>
+                                <span>Mã Chủ Đề: @Model.MaChuDe</span> <br />
+                                <span>Tên Chủ Đề: @Model.TenChuDe</span> <br />
+                                <span>Số Bài viết: @Model.SoBaiViet</span> <br />
+                                <span>Thuộc Danh Mục: @Model.DanhMuc.TenDanhMuc</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

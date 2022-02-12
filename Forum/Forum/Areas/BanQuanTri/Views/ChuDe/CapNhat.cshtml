@@ -1,0 +1,88 @@
+﻿@using Forum.Models
+@model ChuDe
+@{
+    ViewBag.Title = "Cập Nhật";
+    Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
+}
+@{
+    IEnumerable<DanhMuc> DanhSachDanhMuc = ViewBag.DanhMuc as IEnumerable<DanhMuc>;
+}
+
+<div class="p-body">
+    <div class="p-body-inner ">
+        <!--XF:EXTRA_OUTPUT-->
+        <div class="breadcrumb ">
+            <div class="pageContent">
+                <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/Home/Index" itemprop="item">
+                            <span itemprop="name">Trang Chủ</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/xf2/themes/categories/general.1/" itemprop="item">
+                            <span itemprop="name"> Cập Nhật Chủ Đề</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <noscript>
+            <div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript is disabled. For a better experience, please enable JavaScript in your browser before proceeding.</div>
+        </noscript>
+        <div uix_component="MainContainer" class="uix_contentWrapper">
+            <div class="p-body-main  ">
+                <div uix_component="MainContent" class="p-body-content">
+                    <!-- ABOVE MAIN CONTENT -->
+                    @using (Html.BeginForm("CapNhat", "ChuDe"))
+                    {
+                        <div class="p-body-pageContent">
+                            <div class="blocks">
+                                <input type="hidden" name="_xfToken" value="1644569066,ed7fe79af36674dd156ba5117bb51958">
+                                <div class="block-container">
+                                    <div class="block-body">
+                                        <dl class="formRow formRow--input">
+                                            <dt>
+                                                <div class="formRow-labelWrapper">
+                                                    <label class="formRow-label" for="_xfUid-1-1644569066">Tên Chủ Đề</label>
+                                                </div>
+                                            </dt>
+                                            <dd>
+                                                <input type="text" class="input" autofocus="autofocus" autocomplete="username" name="TenChuDe" value="@Model.TenChuDe">
+                                            </dd>
+                                        </dl>
+                                        <dl class="formRow formRow--input">
+                                            <dt>
+                                                <div class="formRow-labelWrapper">
+                                                    <label class="formRow-label" for="_xfUid-2-1644569066">Danh Mục</label>
+                                                </div>
+                                            </dt>
+                                            <dd>
+                                                @Html.DropDownListFor(x => x.MaDanhMuc, new SelectList(DanhSachDanhMuc, "MaDanhMuc", "TenDanhMuc"), new { @class = "form-select" })
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <dl class="formRow formSubmitRow">
+                                        <dt></dt>
+                                        <dd>
+                                            <div class="formSubmitRow-main">
+                                                <div class="formSubmitRow-bar"></div>
+                                                <div class="formSubmitRow-controls">
+                                                    <button type="submit" class="button--primary button rippleButton">
+                                                        <span class="button-text">Thêm Mới</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
