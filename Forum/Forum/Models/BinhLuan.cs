@@ -19,10 +19,6 @@ namespace Forum.Models
         public int MaBinhLuan { get; set; }
 
         [Required]
-        [StringLength(200)]
-        public string TenBinhLuan { get; set; }
-
-        [Required]
         public string NoiDungBinhLuan { get; set; }
 
         public DateTime? NgayBinhLuan { get; set; }

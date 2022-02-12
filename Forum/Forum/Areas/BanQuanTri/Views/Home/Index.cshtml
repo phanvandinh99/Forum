@@ -50,7 +50,7 @@
                         <br>
                         <b>Quyên Góp Hay Hỗ Trợ Kinh Phí Diễn Đàn</b>
                         <br>
-                        4003205625412 Agribank Tên Thẻ: Minh Trí <b>Hoặc</b> 0952135215 PayPal Tên Chủ Thẻ: Minh Trí 
+                        4003205625412 Agribank Tên Thẻ: Minh Trí <b>Hoặc</b> 0952135215 PayPal Tên Chủ Thẻ: Minh Trí
                     </div>
                 </div>
             </li>
@@ -66,7 +66,16 @@
                         <div class="media__body">
                             <div class="uix_welcomeSection__title">Chào Mừng Bạn Đến Diễn Đàn UX</div>
                             <div class="uix_welcomeSection__text">Nơi giao lưu học hỏi kiến thức về lập trình và cuộc sống thường ngày</div>
-                            <a href="register/index.html" class="button--cta button"><span class="button-text">Đăng Nhập</span></a>
+                            @if (Session["TaiKhoan"] == null && Session["TaiKhoanKH"] == null)
+                            {
+                                <a href="/BanQuanTri/DangNhap/TrangDangNhap" class="button--cta button"><span class="button-text">Đăng Nhập</span></a>
+
+                            }
+                            else if (Session["TaiKhoan"] != null) // tồn tại nhân viên
+                            {
+                                NguoiDung nv = (NguoiDung)Session["TaiKhoan"];
+                                <span>Xin chào: @nv.Ho @nv.Ten</span>
+                            }
                         </div>
                     </div>
                 </div>
@@ -119,9 +128,9 @@
                                                                 <dd>@item.SoBaiViet</dd>
                                                             </dl>
                                                             @*<dl class="pairs pairs--rows">
-                                                                <dt>Bài Viết</dt>
-                                                                <dd>1</dd>
-                                                            </dl>*@
+                                                                    <dt>Bài Viết</dt>
+                                                                    <dd>1</dd>
+                                                                </dl>*@
                                                         </div>
                                                         <div class="node-extra">
                                                             <div class="node-extra-icon">

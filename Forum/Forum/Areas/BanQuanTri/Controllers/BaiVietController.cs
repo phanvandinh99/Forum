@@ -87,5 +87,32 @@ namespace Forum.Areas.BanQuanTri.Controllers
             ViewBag.BinhLuan = db.BinhLuans.Where(n => n.MaBaiViet == iMaBaiviet).OrderBy(n => n.MaBinhLuan).ToList();
             return View(baiViet);
         }
+        // Thêm mới bình luận trong bài viết
+        [ValidateInput(false)]
+        public ActionResult ThemBinhLuan(BinhLuan model, FormCollection f, string strURL)
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            int mabaiviet = int.Parse(f["txtMaBaiViet"].ToString());
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+            BinhLuan bl = new BinhLuan();
+            bl.NoiDungBinhLuan = model.NoiDungBinhLuan;
+            bl.NgayBinhLuan = DateTime.Now;
+            bl.TaiKhoan = tk.TaiKhoan;
+            bl.MaBaiViet = mabaiviet;
+            db.BinhLuans.Add(bl);
+            db.SaveChanges();
+            return Redirect(strURL);
+        }
+        // xóa bình luận
+        public ActionResult XoaBinhLuan(int iMaBinhLuan, string strURL)
+        {
+            var binhLuan = db.BinhLuans.SingleOrDefault(n => n.MaBinhLuan == iMaBinhLuan);
+            db.BinhLuans.Remove(binhLuan);
+            db.SaveChanges();
+            return Redirect(strURL);
+        }
     }
 }

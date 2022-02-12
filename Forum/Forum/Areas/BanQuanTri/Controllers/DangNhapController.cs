@@ -40,8 +40,8 @@ namespace Forum.Areas.BanQuanTri.Controllers
 
                 if (tk == null)
                 {
-                        ModelState.AddModelError("", "Không hợp lệ, vui lòng nhập lại!");
-                        return View();
+                    ModelState.AddModelError("", "Không hợp lệ, vui lòng nhập lại!");
+                    return View();
                 }
                 else if (tk.TrangThai == 1)
                 {

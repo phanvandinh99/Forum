@@ -114,7 +114,7 @@ go
 create table BinhLuan
 (
 	MaBinhLuan int identity(1,1) primary key,
-	TenBinhLuan nvarchar(200) not null,
+	--TenBinhLuan nvarchar(200) not null, -- Không cần thiết
 	NoiDungBinhLuan nvarchar(max) not null,
 	NgayBinhLuan datetime default(getdate()),
 	MaBaiViet int,
