@@ -1,0 +1,76 @@
+﻿@using Forum.Models
+@model NguoiDung
+@{
+    ViewBag.Title = "Xem Người Dùng";
+    Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-body">
+    <div class="p-body-inner ">
+        <!--XF:EXTRA_OUTPUT-->
+        <div class="breadcrumb ">
+            <div class="pageContent">
+                <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/Home/Index" itemprop="item">
+                            <span itemprop="name">Trang Chủ</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/NguoiDung/ThanhVien?iMaQuyen=@Model.MaQuyen" itemprop="item">
+                            <span itemprop="name"> Người Dùng</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="#" itemprop="item">
+                            <span itemprop="name"> Xem Chi Tiết</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <noscript>
+            <div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript is disabled. For a better experience, please enable JavaScript in your browser before proceeding.</div>
+        </noscript>
+        <div uix_component="MainContainer" class="uix_contentWrapper">
+            <div class="p-body-main">
+                <div uix_component="MainContent" class="p-body-content">
+                    <!-- ABOVE MAIN CONTENT -->
+                    <div class="p-body-pageContent">
+                        <div>
+                            <span>Tài Khoản: @Model.TaiKhoan</span> <br />
+                            <span>Mật Khẩu: @Model.MatKhau</span> <br />
+                            <span>Họ Tên: @Model.Ho @Model.Ten</span> <br />
+                            <span>Ngày Sinh: @string.Format("{0:dd/MM/yyyy}", Model.NgaySinh)</span> <br />
+                            @if (Model.GioiTinh == 0)
+                            {
+                                <span>Giới Tính: Nam</span> <br />
+                            }
+                            else if (Model.GioiTinh == 1)
+                            {
+                                <span>Giới Tính: Nữ</span> <br />
+                            }
+                            else
+                            {
+                                <span>Giới Tính: Lưỡng Tính</span> <br />
+                            }
+                            @if (Model.TrangThai == 0)
+                            {
+                                <span>Đăng Nhập: Cho Phép</span> <br />
+                            }
+                            else if (Model.TrangThai == 1)
+                            {
+                                <span>Đăng Nhập: Không Cho Phép</span> <br />
+                            }
+                            <span>Số Bài Viết: @Model.DiemThanhTich</span> <br />
+                            <span>Số Bài Viết: @Model.SoBaiViet</span> <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

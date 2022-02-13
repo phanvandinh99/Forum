@@ -10,6 +10,7 @@
     IEnumerable<ChuDe> DanhSachDoiSong = ViewBag.DoiSong as IEnumerable<ChuDe>;
     IEnumerable<ChuDe> DanhSachTheThao = ViewBag.TheThao as IEnumerable<ChuDe>;
     IEnumerable<ChuDe> DanhSachLinhTinh = ViewBag.LinhTinh as IEnumerable<ChuDe>;
+    IEnumerable<BaiViet> DanhSachBaiVietMoi = ViewBag.BaiVietMoi as IEnumerable<BaiViet>;
 
 }
 
@@ -69,7 +70,7 @@
                             @if (Session["TaiKhoan"] == null && Session["TaiKhoanKH"] == null)
                             {
                                 <a href="/BanQuanTri/DangNhap/TrangDangNhap" class="button--cta button"><span class="button-text">Đăng Nhập</span></a>
-
+                                <a href="/BanQuanTri/DangNhap/DangKy" class="button--cta button"><span class="button-text">Đăng Ký</span></a>
                             }
                             else if (Session["TaiKhoan"] != null) // tồn tại nhân viên
                             {
@@ -80,12 +81,12 @@
                     </div>
                 </div>
             </div>
-            <div class="p-body-main p-body-main--withSidebar ">
+            <div class="p-body-main p-body-main--withSidebar">
                 <div uix_component="MainContent" class="p-body-content">
                     <!-- ABOVE MAIN CONTENT -->
                     <div class="p-body-pageContent">
                         <div class="uix_nodeList block">
-                            <div class="block block--category block--category1 ">
+                            <div class="block block--category block--category1 list">
                                 <span class="u-anchorTarget" id="general.1"></span>
                                 <h2 class="block-header js-nodeMain">
                                     <div class="uix_categoryStrip-content">
@@ -93,7 +94,7 @@
                                     </div>
                                     <a href="javascript:;" class="u-ripple categoryCollapse--trigger" rel="nofollow"><i class="fa--xf far fa-chevron-up" aria-hidden="true"></i></a>
                                 </h2>
-                                <div class="block-container ">
+                                <div class="block-container">
                                     <div class="uix_block-body--outer">
                                         <div class="block-body">
                                             @foreach (var item in DanhSachLapTrinh)
@@ -105,7 +106,7 @@
                                                         </span>
                                                         <div class="node-main js-nodeMain">
                                                             <h3 class="node-title">
-                                                                <a href="/BanQuanTri/BaiViet/BaiVietChuDe?iMaChuDe=@item.MaChuDe" data-xf-init="" data-shortcut="node-description">
+                                                                <a href="/BanQuanTri/ChuDe/BaiVietMoiTheoChuDe?iMaChuDe=@item.MaChuDe" data-xf-init="" data-shortcut="node-description" class="TenChuDe">
                                                                     @item.TenChuDe
                                                                 </a>
                                                             </h3>
@@ -127,29 +128,29 @@
                                                                 <dt>Bài Viết</dt>
                                                                 <dd>@item.SoBaiViet</dd>
                                                             </dl>
-                                                            @*<dl class="pairs pairs--rows">
-                                                                    <dt>Bài Viết</dt>
-                                                                    <dd>1</dd>
-                                                                </dl>*@
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Lượt Xem</dt>
+                                                                <dd>@item.LuotXem</dd>
+                                                            </dl>
                                                         </div>
-                                                        <div class="node-extra">
-                                                            <div class="node-extra-icon">
-                                                                <a href="members/dalton-prock.1/index.html" class="avatar avatar--xs" data-user-id="1" data-xf-init="member-tooltip">
-                                                                    <img src="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=48" srcset="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=96 2x" alt="Dalton Prock" class="avatar-u1-s" width="48" height="48" loading="lazy" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="uix_nodeExtra__rows">
-                                                                <div class="node-extra-row">
-                                                                    <a href="threads/hiya.2/%23post-2.html" class="node-extra-title" title="Hiya">Hiya</a>
+                                                        @*<div class="node-extra">
+                                                                <div class="node-extra-icon">
+                                                                    <a href="members/dalton-prock.1/index.html" class="avatar avatar--xs" data-user-id="1" data-xf-init="member-tooltip">
+                                                                        <img src="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=48" srcset="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=96 2x" alt="Dalton Prock" class="avatar-u1-s" width="48" height="48" loading="lazy" />
+                                                                    </a>
                                                                 </div>
-                                                                <div class="node-extra-row">
-                                                                    <ul class="listInline listInline--bullet">
-                                                                        <li><time class="node-extra-date u-dt" dir="auto" datetime="2017-11-14T16:56:28-0600" data-time="1510700188" data-date-string="Nov 14, 2017" data-time-string="4:56 PM" title="Nov 14, 2017 at 4:56 PM">Nov 14, 2017</time></li>
-                                                                        <li class="node-extra-user"><a href="members/dalton-prock.1/index.html" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip"><span class="username--staff username--moderator username--admin">Dalton Prock</span></a></li>
-                                                                    </ul>
+                                                                <div class="uix_nodeExtra__rows">
+                                                                    <div class="node-extra-row">
+                                                                        <a href="threads/hiya.2/%23post-2.html" class="node-extra-title" title="Hiya">Hiya</a>
+                                                                    </div>
+                                                                    <div class="node-extra-row">
+                                                                        <ul class="listInline listInline--bullet">
+                                                                            <li><time class="node-extra-date u-dt" dir="auto" datetime="2017-11-14T16:56:28-0600" data-time="1510700188" data-date-string="Nov 14, 2017" data-time-string="4:56 PM" title="Nov 14, 2017 at 4:56 PM">Nov 14, 2017</time></li>
+                                                                            <li class="node-extra-user"><a href="members/dalton-prock.1/index.html" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip"><span class="username--staff username--moderator username--admin">Dalton Prock</span></a></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
+                                                            </div>*@
                                                     </div>
                                                 </div>
                                             }
@@ -157,7 +158,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="block block--category block--category6 ">
+                            <div class="block block--category block--category6">
                                 <span class="u-anchorTarget" id="electronics-gadgets.6"></span>
                                 <h2 class="block-header js-nodeMain">
                                     <div class="uix_categoryStrip-content">
@@ -168,110 +169,45 @@
                                 <div class="block-container ">
                                     <div class="uix_block-body--outer">
                                         <div class="block-body">
-                                            <div class="node node--id36 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-lightbulb-on" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/suggestions.36/index.html" data-xf-init="" data-shortcut="node-description">Suggestions</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>1</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>2</dd>
-                                                                </dl>
+                                            @foreach (var item in DanhSachDoiSong)
+                                            {
+                                                <div class="node node--id2 node--depth2  node--forum node--read">
+                                                    <div class="node-body">
+                                                        <span class="node-icon" aria-hidden="true">
+                                                            <i class="fa--xf far fa-comments" aria-hidden="true"></i>
+                                                        </span>
+                                                        <div class="node-main js-nodeMain">
+                                                            <h3 class="node-title">
+                                                                <a href="/BanQuanTri/ChuDe/BaiVietMoiTheoChuDe?iMaChuDe=@item.MaChuDe" data-xf-init="" data-shortcut="node-description" class="TenChuDe">
+                                                                    @item.TenChuDe
+                                                                </a>
+                                                            </h3>
+                                                            <div class="node-meta">
+                                                                <div class="node-statsMeta">
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>1</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>2</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <div class="node-extra-icon">
-                                                            <a href="members/megan-bergner.11/index.html" class="avatar avatar--xs avatar--default avatar--default--dynamic" data-user-id="11" data-xf-init="member-tooltip" style="background-color: #c0ca33; color: #f4ff81">
-                                                                <span class="avatar-u11-s" role="img" aria-label="Megan Bergner">M</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="uix_nodeExtra__rows">
-                                                            <div class="node-extra-row">
-                                                                <a href="threads/share-your-favorite-phone-os.79/%23post-469.html" class="node-extra-title" title="Share your favorite phone OS!">Share your favorite phone OS!</a>
-                                                            </div>
-                                                            <div class="node-extra-row">
-                                                                <ul class="listInline listInline--bullet">
-                                                                    <li><time class="node-extra-date u-dt" dir="auto" datetime="2020-10-08T07:41:36-0500" data-time="1602160896" data-date-string="Oct 8, 2020" data-time-string="7:41 AM" title="Oct 8, 2020 at 7:41 AM">Oct 8, 2020</time></li>
-                                                                    <li class="node-extra-user"><a href="members/megan-bergner.11/index.html" class="username " dir="auto" data-user-id="11" data-xf-init="member-tooltip"><span class="username--staff username--moderator username--admin">Megan Bergner</span></a></li>
-                                                                </ul>
-                                                            </div>
+                                                        <div class="node-stats">
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Bài Viết</dt>
+                                                                <dd>@item.SoBaiViet</dd>
+                                                            </dl>
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Lượt Xem</dt>
+                                                                <dd>@item.LuotXem</dd>
+                                                            </dl>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="node node--id10 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/smart-home.10/index.html" data-xf-init="" data-shortcut="node-description">Smart Home</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>1</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>8</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>1</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>8</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <div class="node-extra-icon">
-                                                            <a href="members/will.12/index.html" class="avatar avatar--xs avatar--default avatar--default--dynamic" data-user-id="12" data-xf-init="member-tooltip" style="background-color: #c2185b; color: #ff80ab">
-                                                                <span class="avatar-u12-s" role="img" aria-label="will">W</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="uix_nodeExtra__rows">
-                                                            <div class="node-extra-row">
-                                                                <a href="threads/amazon-echo-some-tips.72/%23post-499.html" class="node-extra-title" title="Amazon Echo: some tips">Amazon Echo: some tips</a>
-                                                            </div>
-                                                            <div class="node-extra-row">
-                                                                <ul class="listInline listInline--bullet">
-                                                                    <li><time class="node-extra-date u-dt" dir="auto" datetime="2020-11-23T08:26:12-0600" data-time="1606141572" data-date-string="Nov 23, 2020" data-time-string="8:26 AM" title="Nov 23, 2020 at 8:26 AM">Nov 23, 2020</time></li>
-                                                                    <li class="node-extra-user"><a href="members/will.12/index.html" class="username " dir="auto" data-user-id="12" data-xf-init="member-tooltip"><span class="username--admin">will</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -287,426 +223,45 @@
                                 <div class="block-container ">
                                     <div class="uix_block-body--outer">
                                         <div class="block-body">
-                                            <div class="node node--id37 node--depth2  node--search">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="search-forums/hardware-all.37/index.html"
-                                                               data-xf-init=""
-                                                               data-shortcut="node-description">
-                                                                Hardware-All
-                                                            </a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id12 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/desktop.12/index.html" data-xf-init="" data-shortcut="node-description">Desktop</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                            <div class="node-subNodeMenu">
-                                                                <a class="menuTrigger" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">
-                                                                    <span>Sub-forums</span>
-                                                                    <i class="fa--xf far fa-folder" aria-hidden="true"></i>
+                                            @foreach (var item in DanhSachTheThao)
+                                            {
+                                                <div class="node node--id2 node--depth2  node--forum node--read">
+                                                    <div class="node-body">
+                                                        <span class="node-icon" aria-hidden="true">
+                                                            <i class="fa--xf far fa-comments" aria-hidden="true"></i>
+                                                        </span>
+                                                        <div class="node-main js-nodeMain">
+                                                            <h3 class="node-title">
+                                                                <a href="/BanQuanTri/ChuDe/BaiVietMoiTheoChuDe?iMaChuDe=@item.MaChuDe" data-xf-init="" data-shortcut="node-description" class="TenChuDe">
+                                                                    @item.TenChuDe
                                                                 </a>
-                                                                <div class="menu" data-menu="menu" aria-hidden="true">
-                                                                    <div class="menu-content">
-                                                                        <h4 class="menu-header">Sub-forums</h4>
-                                                                        <ol class="subNodeMenu">
-                                                                            <li>
-                                                                                <a href="forums/windows-10.30/index.html" class="subNodeLink subNodeLink--forum ">
-                                                                                    <i class="fa--xf far fa-comments subNodeLink-icon" aria-hidden="true"></i>Windows 10
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="forums/linux.31/index.html" class="subNodeLink subNodeLink--forum ">
-                                                                                    <i class="fa--xf far fa-comments subNodeLink-icon" aria-hidden="true"></i>Linux
-                                                                                </a>
-                                                                            </li>
-                                                                        </ol>
-                                                                    </div>
+                                                            </h3>
+                                                            <div class="node-meta">
+                                                                <div class="node-statsMeta">
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id13 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/imac.13/index.html" data-xf-init="" data-shortcut="node-description">iMac</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
+                                                        <div class="node-stats">
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Bài Viết</dt>
+                                                                <dd>@item.SoBaiViet</dd>
+                                                            </dl>
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Lượt Xem</dt>
+                                                                <dd>@item.LuotXem</dd>
+                                                            </dl>
                                                         </div>
                                                     </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="node node--id14 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/laptop.14/index.html" data-xf-init="" data-shortcut="node-description">Laptop</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id15 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/macbook.15/index.html" data-xf-init="" data-shortcut="node-description">MacBook</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id16 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/phones.16/index.html" data-xf-init="" data-shortcut="node-description">Phones</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                            <div class="node-subNodeMenu">
-                                                                <a class="menuTrigger" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">
-                                                                    <span>Sub-forums</span>
-                                                                    <i class="fa--xf far fa-folder" aria-hidden="true"></i>
-                                                                </a>
-                                                                <div class="menu" data-menu="menu" aria-hidden="true">
-                                                                    <div class="menu-content">
-                                                                        <h4 class="menu-header">Sub-forums</h4>
-                                                                        <ol class="subNodeMenu">
-                                                                            <li>
-                                                                                <a href="forums/ios.32/index.html" class="subNodeLink subNodeLink--forum ">
-                                                                                    <i class="fa--xf far fa-comments subNodeLink-icon" aria-hidden="true"></i>iOS
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="forums/android.33/index.html" class="subNodeLink subNodeLink--forum ">
-                                                                                    <i class="fa--xf far fa-comments subNodeLink-icon" aria-hidden="true"></i>Android
-                                                                                </a>
-                                                                            </li>
-                                                                        </ol>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id17 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/tablets.17/index.html" data-xf-init="" data-shortcut="node-description">Tablets</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id18 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/graphics-card.18/index.html" data-xf-init="" data-shortcut="node-description">Graphics Card</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id19 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/storage.19/index.html" data-xf-init="" data-shortcut="node-description">Storage</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id20 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/networking-wireless.20/index.html" data-xf-init="" data-shortcut="node-description">Networking &amp; Wireless</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -722,258 +277,45 @@
                                 <div class="block-container ">
                                     <div class="uix_block-body--outer">
                                         <div class="block-body">
-                                            <div class="node node--id28 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/questions.28/index.html" data-xf-init="" data-shortcut="node-description">Questions</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
+                                            @foreach (var item in DanhSachLinhTinh)
+                                            {
+                                                <div class="node node--id2 node--depth2  node--forum node--read">
+                                                    <div class="node-body">
+                                                        <span class="node-icon" aria-hidden="true">
+                                                            <i class="fa--xf far fa-comments" aria-hidden="true"></i>
+                                                        </span>
+                                                        <div class="node-main js-nodeMain">
+                                                            <h3 class="node-title">
+                                                                <a href="/BanQuanTri/ChuDe/BaiVietMoiTheoChuDe?iMaChuDe=@item.MaChuDe" data-xf-init="" data-shortcut="node-description" class="TenChuDe">
+                                                                    @item.TenChuDe
+                                                                </a>
+                                                            </h3>
+                                                            <div class="node-meta">
+                                                                <div class="node-statsMeta">
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
+                                                                    <dl class="pairs pairs--inline">
+                                                                        <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
+                                                                        <dd>1</dd>
+                                                                    </dl>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id22 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/general.22/index.html" data-xf-init="" data-shortcut="node-description">Lập Trình</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>4</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>5</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>4</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>5</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <div class="node-extra-icon">
-                                                            <a href="members/dalton-prock.1/index.html" class="avatar avatar--xs" data-user-id="1" data-xf-init="member-tooltip">
-                                                                <img src="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=48" srcset="https://secure.gravatar.com/avatar/7998cab7539184204cde363cc78fd555?s=96 2x" alt="Dalton Prock" class="avatar-u1-s" width="48" height="48" loading="lazy" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="uix_nodeExtra__rows">
-                                                            <div class="node-extra-row">
-                                                                <a href="threads/cats-or-dogs.46/%23post-355.html" class="node-extra-title" title="Cats or Dogs?">Cats or Dogs?</a>
-                                                            </div>
-                                                            <div class="node-extra-row">
-                                                                <ul class="listInline listInline--bullet">
-                                                                    <li><time class="node-extra-date u-dt" dir="auto" datetime="2018-08-10T14:27:20-0500" data-time="1533929240" data-date-string="Aug 10, 2018" data-time-string="2:27 PM" title="Aug 10, 2018 at 2:27 PM">Aug 10, 2018</time></li>
-                                                                    <li class="node-extra-user"><a href="members/dalton-prock.1/index.html" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip"><span class="username--staff username--moderator username--admin">Dalton Prock</span></a></li>
-                                                                </ul>
-                                                            </div>
+                                                        <div class="node-stats">
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Bài Viết</dt>
+                                                                <dd>@item.SoBaiViet</dd>
+                                                            </dl>
+                                                            <dl class="pairs pairs--rows">
+                                                                <dt>Lượt Xem</dt>
+                                                                <dd>@item.LuotXem</dd>
+                                                            </dl>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="node node--id23 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/sports.23/index.html" data-xf-init="" data-shortcut="node-description">Sports</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id24 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/movies-tv-music.24/index.html" data-xf-init="" data-shortcut="node-description">Movies, TV &amp; Music</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>1</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>1</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>1</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>1</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <div class="node-extra-icon">
-                                                            <a href="members/jake-booher.3/index.html" class="avatar avatar--xs" data-user-id="3" data-xf-init="member-tooltip">
-                                                                <img src="https://secure.gravatar.com/avatar/fe37840154658b0a7219289e6574a9e1?s=48" srcset="https://secure.gravatar.com/avatar/fe37840154658b0a7219289e6574a9e1?s=96 2x" alt="Jake Booher" class="avatar-u3-s" width="48" height="48" loading="lazy" />
-                                                            </a>
-                                                        </div>
-                                                        <div class="uix_nodeExtra__rows">
-                                                            <div class="node-extra-row">
-                                                                <a href="threads/the-avengers-infinity-war.38/%23post-75.html" class="node-extra-title" title="The Avengers: Infinity War">The Avengers: Infinity War</a>
-                                                            </div>
-                                                            <div class="node-extra-row">
-                                                                <ul class="listInline listInline--bullet">
-                                                                    <li><time class="node-extra-date u-dt" dir="auto" datetime="2017-12-01T14:15:29-0600" data-time="1512159329" data-date-string="Dec 1, 2017" data-time-string="2:15 PM" title="Dec 1, 2017 at 2:15 PM">Dec 1, 2017</time></li>
-                                                                    <li class="node-extra-user"><a href="members/jake-booher.3/index.html" class="username " dir="auto" data-user-id="3" data-xf-init="member-tooltip"><span class="username--staff username--moderator username--admin">Jake Booher</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id25 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/health-fitness.25/index.html" data-xf-init="" data-shortcut="node-description">Health &amp; Fitness</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="node node--id26 node--depth2  node--forum node--read">
-                                                <div class="node-body">
-                                                    <span class="node-icon" aria-hidden="true">
-                                                        <i class="fa--xf far fa-comments" aria-hidden="true"></i>
-                                                    </span>
-                                                    <div class="node-main js-nodeMain">
-                                                        <h3 class="node-title">
-                                                            <a href="forums/food-travel.26/index.html" data-xf-init="" data-shortcut="node-description">Food &amp; Travel</a>
-                                                        </h3>
-                                                        <div class="node-meta">
-                                                            <div class="node-statsMeta">
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comment" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                                <dl class="pairs pairs--inline">
-                                                                    <dt><i class="fa--xf far fa-comments" aria-hidden="true"></i></dt>
-                                                                    <dd>0</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="node-stats">
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Threads</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--rows">
-                                                            <dt>Messages</dt>
-                                                            <dd>0</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="node-extra">
-                                                        <span class="node-extra-placeholder">None</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -981,23 +323,27 @@
                         </div>
                         <div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">
                             <div class="block-container">
-                                <h3 class="block-minorHeader">Forum statistics</h3>
+                                <h3 class="block-minorHeader">Thống Kê</h3>
                                 <div class="block-body block-row">
                                     <dl class="pairs pairs--justified">
-                                        <dt>Threads</dt>
-                                        <dd>19</dd>
+                                        <dt><a href="/BanQuanTri/DanhMuc/DanhMuc">Danh Mục</a></dt>
+                                        <dd>@ViewBag.DanhMuc</dd>
                                     </dl>
                                     <dl class="pairs pairs--justified">
-                                        <dt>Messages</dt>
-                                        <dd>39</dd>
+                                        <dt><a href="/BanQuanTri/ChuDe/ChuDe">Chủ Đề</a></dt>
+                                        <dd>@ViewBag.ChuDe</dd>
                                     </dl>
                                     <dl class="pairs pairs--justified">
-                                        <dt>Members</dt>
-                                        <dd>13</dd>
+                                        <dt><a href="/BanQuanTri/BaiViet/BaiVietMoi">Bài Viết</a></dt>
+                                        <dd>@ViewBag.BaiViet</dd>
                                     </dl>
                                     <dl class="pairs pairs--justified">
-                                        <dt>Latest member</dt>
-                                        <dd><a href="members/alex-j.14/index.html" class="username " dir="auto" data-user-id="14" data-xf-init="member-tooltip"><span class="username--admin">Alex J</span></a></dd>
+                                        <dt><a href="">Thành Viên</a></dt>
+                                        <dd>@ViewBag.ThanhVien</dd>
+                                    </dl>
+                                    <dl class="pairs pairs--justified">
+                                        <dt><a href="">Ban Quản Trị</a></dt>
+                                        <dd>@ViewBag.BanQuanTri</dd>
                                     </dl>
                                 </div>
                             </div>
@@ -1013,14 +359,15 @@
                                   data-widget-id="1" data-widget-key="member_wrapper_find_member" data-widget-definition="find_member">
                                 <input type="hidden" name="_xfToken" value="1644417221,2e5c08a434ae330980a173ff835badbe" />
                                 <div class="block-container">
-                                    <h3 class="block-minorHeader">Tìm Kiếm Bài Viết</h3>
-                                    <div class="block-body block-row">
-                                        <input type="text" class="input" data-xf-init="auto-complete" data-single="true" name="username" data-autosubmit="true" maxlength="50" placeholder="Name…" />
+                                    <h3 class="block-minorHeader">Tìm Kiếm Chủ Đề</h3>
+                                    <div class="block-body block-row" style="text-align:center">
+                                        <input type="text" class="input" data-xf-init="auto-complete" data-single="true" name="username" data-autosubmit="true" maxlength="50" placeholder="Tìm kiếm chủ đề..." />
+                                        <a class="button--cta button" style="margin-top: 5px; background-color: #2196f3">Tìm Kiếm</a>
                                     </div>
                                 </div>
                             </form>
                             <div class="block" data-widget-id="2" data-widget-key="member_wrapper_newest_members" data-widget-definition="newest_members">
-                                <div class="block-container">
+                                <div class="block-container" style="display:none">
                                     <h3 class="block-minorHeader">Newest members</h3>
                                     <div class="block-body block-row">
                                         <ul class="listHeap">
@@ -1088,18 +435,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="block" data-widget-section="onlineNow" data-widget-id="6" data-widget-key="forum_overview_members_online" data-widget-definition="members_online">
+                            <div class="block" data-widget-section="onlineNow" data-widget-id="6" data-widget-key="forum_overview_members_online" data-widget-definition="fa--xf far fa-comments">
                                 <div class="block-container">
-                                    <h3 class="block-minorHeader"><a href="online/index.html">Members online</a></h3>
+                                    <h3 class="block-minorHeader"><a href="/BanQuanTri/BaiViet/BaiVietMoi">Bài Viết Mới</a></h3>
                                     <div class="block-body">
                                         <div class="block-row block-row--minor">
                                             <ul class="listInline listInline--comma">
-                                                <li><a href="members/demo.6/index.html" class="username " dir="auto" data-user-id="6" data-xf-init="member-tooltip">demo</a></li>
+                                                @foreach (var item in DanhSachBaiVietMoi)
+                                                {
+                                                    <li><a href="/BanQuanTri/BaiViet/BaiViet?iMaBaiviet=@item.MaBaiViet" class="username" dir="auto" data-user-id="6" data-xf-init="member-tooltip">@item.TenBaiViet</a></li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="block-footer">
-                                        <span class="block-footer-counter">Total:&nbsp;4 (members:&nbsp;1, guests:&nbsp;3)</span>
+                                        @*<span class="block-footer-counter"><a>Xem Thêm</a></span>*@
                                     </div>
                                 </div>
                             </div>
@@ -1131,32 +481,36 @@
                                 </div>*@
                             <div class="block" data-widget-id="9" data-widget-key="forum_overview_forum_statistics" data-widget-definition="forum_statistics">
                                 <div class="block-container">
-                                    <h3 class="block-minorHeader">Forum statistics</h3>
+                                    <h3 class="block-minorHeader">Thống kê</h3>
                                     <div class="block-body block-row">
                                         <dl class="pairs pairs--justified">
-                                            <dt>Threads</dt>
-                                            <dd>19</dd>
+                                            <dt><a href="/BanQuanTri/DanhMuc/DanhMuc">Danh Mục</a></dt>
+                                            <dd>@ViewBag.DanhMuc</dd>
                                         </dl>
                                         <dl class="pairs pairs--justified">
-                                            <dt>Messages</dt>
-                                            <dd>39</dd>
+                                            <dt><a href="/BanQuanTri/ChuDe/ChuDe">Chủ Đề</a></dt>
+                                            <dd>@ViewBag.ChuDe</dd>
                                         </dl>
                                         <dl class="pairs pairs--justified">
-                                            <dt>Members</dt>
-                                            <dd>13</dd>
+                                            <dt><a href="/BanQuanTri/BaiViet/BaiVietMoi">Bài Viết</a></dt>
+                                            <dd>@ViewBag.BaiViet</dd>
                                         </dl>
                                         <dl class="pairs pairs--justified">
-                                            <dt>Latest member</dt>
-                                            <dd><a href="members/alex-j.14/index.html" class="username " dir="auto" data-user-id="14" data-xf-init="member-tooltip"><span class="username--admin">Alex J</span></a></dd>
+                                            <dt><a href="">Thành Viên</a></dt>
+                                            <dd>@ViewBag.ThanhVien</dd>
+                                        </dl>
+                                        <dl class="pairs pairs--justified">
+                                            <dt><a href="">Ban Quản Trị</a></dt>
+                                            <dd>@ViewBag.BanQuanTri</dd>
                                         </dl>
                                     </div>
                                 </div>
                             </div>
                             <div class="block" data-widget-id="10" data-widget-key="forum_overview_share_page" data-widget-definition="share_page">
                                 <div class="block-container">
-                                    <h3 class="block-minorHeader">Share this page</h3>
+                                    <h3 class="block-minorHeader">Chia Sẻ Diễn Đàn</h3>
                                     <div class="block-body block-row" style="text-align: center;">
-                                        <a data-xf-click="overlay" data-target=".uix_shareWidgetModal" class="button button--primary"><i class="fa--xf far fa-share" aria-hidden="true"></i> Share this page</a>
+                                        <a data-xf-click="overlay" data-target=".uix_shareWidgetModal" class="button button--primary"><i class="fa--xf far fa-share" aria-hidden="true"></i> Chia Sẻ</a>
                                         <div style="display: none">
                                             <div class="uix_shareWidgetModal">
                                                 <div class="overlay-title">Share</div>

@@ -19,38 +19,39 @@ create table ChuDe
 	MaChuDe int identity(1,1) primary key,
 	TenChuDe nvarchar(100) not null,
 	SoBaiViet int default(0),
+	LuotXem int default(0),
 	MaDanhMuc int,
 
 	Foreign key(MaDanhMuc) references DanhMuc(MaDanhMuc),
 )
 go
 --Lập Trình
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Lập Trình DOT NET', 0, 1);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Lập Trình JAVA', 0, 1);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Lập Trình PHP', 0, 1);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Cơ Sở Dữ Liệu SQL Server', 0, 1);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Khác', 0, 1);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Lập Trình DOT NET', 0, 0, 1);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Lập Trình JAVA', 0, 0, 1);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Lập Trình PHP', 0, 0, 1);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Cơ Sở Dữ Liệu SQL Server', 0, 0, 1);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Khác', 0, 0,  1);
 
 -- Đời Sống
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Đầu Tư Kiếm Tiền', 0, 2);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Tư Vấn & Hỏi Đáp', 0, 2);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Bảng Tin Trong Nước', 0, 2);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Bảng Tin Thế Giới', 0, 2);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Khác', 0, 2);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Đầu Tư Kiếm Tiền', 0, 0, 2);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Tư Vấn & Hỏi Đáp', 0, 0, 2);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Bảng Tin Trong Nước', 0, 0, 2);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Bảng Tin Thế Giới', 0, 0, 2);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Khác', 0, 0,  2);
 
 -- Thể Thao
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Đầu Tư Kiếm Tiền', 0, 3);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Tư Vấn & Hỏi Đáp', 0, 3);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Bảng Tin Trong Nước', 0, 3);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Bảng Tin Thế Giới', 0, 3);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Khác', 0, 3);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Đầu Tư Kiếm Tiền', 0, 0, 3);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Tư Vấn & Hỏi Đáp', 0, 0, 3);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Bảng Tin Trong Nước', 0, 0, 3);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Bảng Tin Thế Giới', 0, 0, 3);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Khác', 0, 0, 3);
 
 -- Linh Tinh
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Trò Chuyện Linh Tinh', 0, 4);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Quảng Cáo Rao Vặt', 0, 4);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Tin Tuyển Dụng', 0, 4);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Giá Vàng', 0, 4);
-insert into ChuDe(TenChuDe, SoBaiViet, MaDanhMuc) values (N'Khác', 0, 4);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Trò Chuyện Linh Tinh', 0, 0,  4);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Quảng Cáo Rao Vặt', 0, 0,  4);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Tin Tuyển Dụng', 0, 0,  4);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Giá Vàng', 0, 0,  4);
+insert into ChuDe(TenChuDe, SoBaiViet, LuotXem, MaDanhMuc) values (N'Khác', 0, 0,  4);
 go 
 create table Quyen
 (

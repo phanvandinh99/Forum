@@ -134,6 +134,7 @@
     <Compile Include="Areas\BanQuanTri\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\HomeController.cs" />
+    <Compile Include="Areas\BanQuanTri\Controllers\NguoiDungController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\ThongBaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -781,6 +782,12 @@
     <Content Include="Areas\BanQuanTri\Views\DanhMuc\CapNhat.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\DanhMuc\XemChiTiet.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\DanhMuc\Xoa.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\ThanhVien.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\XemChiTiet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\XoaNguoiDung.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\CapNhat.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\BaiVietCanDuyet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\ChiTietBaiVietCanDuyet.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

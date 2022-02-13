@@ -1,0 +1,242 @@
+﻿@using Forum.Models;
+@model BaiViet
+@{
+    ViewBag.Title = "Bài Viết Cần Duyệt";
+    Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
+}
+<div class="p-body">
+    <div class="p-body-inner ">
+        <!--XF:EXTRA_OUTPUT-->
+        <div class="breadcrumb ">
+            <div class="pageContent">
+                <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/xf2/themes/" itemprop="item">
+                            <span itemprop="name">Trang Chủ</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/BaiViet/BaiVietCanDuyet" itemprop="item">
+                            <span itemprop="name">Duyệt Bài Viết</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="" itemprop="item">
+                            <span itemprop="name">Chi Tiết Bài Viết</span>
+                        </a>
+                        <meta itemprop="position" content="3">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <noscript>
+            <div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript is disabled. For a better experience, please enable JavaScript in your browser before proceeding.</div>
+        </noscript>
+        <div uix_component="MainContainer" class="uix_contentWrapper">
+            <div class="p-body-main  ">
+                <div uix_component="MainContent" class="p-body-content">
+                    <!-- ABOVE MAIN CONTENT -->
+                    <div class="p-body-pageContent">
+                        <div class="block block--messages " data-xf-init="lightbox select-to-quote" data-message-selector=".js-post" data-lb-id="thread-77">
+                            <div class="block-outer"></div>
+                            <div class="block-outer js-threadStatusField"></div>
+                            <div class="block-container">
+                                <div class="block-body">
+                                    <article class="message   message-staffPost   message-threadStarterPost message--post  js-post js-inlineModContainer  " data-author="Megan Bergner" data-content="post-443" id="js-post-443">
+                                        <span class="u-anchorTarget" id="post-443"></span>
+                                        <div class="message-inner">
+                                            <div class="message-cell message-cell--user">
+                                                <section itemscope="" itemtype="https://schema.org/Person" class="message-user userExtra--expand">
+                                                    <div class="message-avatar ">
+                                                        <div class="message-avatar-wrapper">
+                                                            <a href="/xf2/themes/members/megan-bergner.11/" class="avatar avatar--s avatar--default avatar--default--dynamic" data-user-id="11" data-xf-init="member-tooltip" style="background-color: #c0ca33; color: #f4ff81" id="js-XFUniqueId7">
+                                                                <span class="avatar-u11-s" role="img" aria-label="Megan Bergner">M</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="uix_messagePostBitWrapper">
+                                                        <div class="message-userDetails">
+                                                            <h4 class="message-name">
+                                                                <a href="/xf2/themes/members/megan-bergner.11/" class="username " dir="auto" data-user-id="11" data-xf-init="member-tooltip" itemprop="name" id="js-XFUniqueId8">
+                                                                    <span class="username--staff username--moderator username--admin">@Model.NguoiDung.Ho @Model.NguoiDung.Ten</span>
+                                                                </a>
+                                                            </h4>
+                                                            <h5 class="userTitle message-userTitle" dir="auto" itemprop="jobTitle">@Model.NguoiDung.Quyen.TenQuyen</h5>
+                                                            <div class="uix_originalPoster__icon" data-xf-init="tooltip" data-original-title="Original poster" aria-label="Original poster" id="js-XFUniqueId9">
+                                                                <i class="fa--xf far fa-user-edit mdi mdi-account-edit" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="userBanner userBanner--staff message-userBanner" dir="auto" itemprop="jobTitle">
+                                                                <span class="userBanner-before"></span>
+                                                                <strong>VIP</strong><span class="userBanner-after"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="thThreads__message-userExtras" style="">
+                                                            <div class="message-userExtras">
+                                                                <dl class="pairs pairs--justified">
+                                                                    <dt>
+                                                                        <span data-xf-init="tooltip" data-original-title="Ngày Sinh" aria-label="Ngày Sinh" id="js-XFUniqueId10">
+                                                                            <i class="fa--xf far fa-user" aria-hidden="true"></i>
+                                                                        </span>
+                                                                    </dt>
+                                                                    <dd>@string.Format("{0:dd/MM/yyyy}", Model.NguoiDung.NgaySinh) </dd>
+                                                                </dl>
+                                                                <dl class="pairs pairs--justified">
+                                                                    <dt>
+                                                                        <span data-xf-init="tooltip" data-original-title="Bài Viết" aria-label="Bài Viết" id="js-XFUniqueId11">
+                                                                            <i class="fa--xf far fa-comments" aria-hidden="true"></i>
+                                                                        </span>
+                                                                    </dt>
+                                                                    <dd>@Model.NguoiDung.SoBaiViet</dd>
+                                                                </dl>
+                                                                @*<dl class="pairs pairs--justified">
+                                                                        <dt>
+                                                                            <span data-xf-init="tooltip" data-original-title="Reaction score" aria-label="Reaction score" id="js-XFUniqueId12">
+                                                                                <i class="fa--xf far fa-thumbs-up" aria-hidden="true"></i>
+                                                                            </span>
+                                                                        </dt>
+                                                                        <dd>7</dd>
+                                                                    </dl>*@
+                                                                <dl class="pairs pairs--justified">
+                                                                    <dt>
+                                                                        <span data-xf-init="tooltip" data-original-title="Điểm Thành Tích" aria-label="Points" id="js-XFUniqueId13">
+                                                                            <i class="fa--xf far fa-trophy" aria-hidden="true"></i>
+                                                                        </span>
+                                                                    </dt>
+                                                                    <dd>@Model.NguoiDung.DiemThanhTich</dd>
+                                                                </dl>
+                                                            </div>
+                                                        </div>
+                                                        <div class="thThreads__userExtra--toggle">
+                                                            <a href="javascript:;" class="thThreads__userExtra--trigger" data-xf-click="ththreads-userextra-trigger"></a>
+                                                        </div>
+                                                    </div>
+                                                    <span class="message-userArrow"></span>
+                                                </section>
+                                            </div>
+                                            <div class="message-cell message-cell--main">
+                                                <div class="message-main uix_messageContent js-quickEditTarget">
+                                                    <header class="message-attribution message-attribution--split">
+                                                        @*<ul class="message-attribution-main listInline ">
+                                                                <li class="u-concealed">
+                                                                    <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow" style="float:right">
+                                                                        <time class="u-dt" dir="auto" datetime="2020-10-07T09:49:16-0500" data-time="1602082156" itemprop="datePublished">@Model.NgayDang</time>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>*@
+                                                        <ul class="message-attribution-opposite message-attribution-opposite--list ">
+                                                            <li style="color:black">
+                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow">
+                                                                    [Ngày Đăng: @Model.NgayDang]
+                                                                </a>
+                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow">
+                                                                    [Cập Nhật Lần Cuối: @Model.NgayCapNhat]
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" class="message-attribution-gadget" data-xf-init="share-tooltip" data-href="/xf2/themes/posts/443/share" aria-label="Share" rel="nofollow" id="js-XFUniqueId14">
+                                                                    <i class="fa--xf far fa-share-alt" aria-hidden="true"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow">
+                                                                    #@Model.MaBaiViet
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </header>
+                                                    <h3 style="color:black">@Model.TenBaiViet</h3>
+
+                                                    <div class="message-content js-messageContent">
+                                                        <div class="message-userContent lbContainer js-lbContainer " data-lb-id="post-443" data-lb-caption-desc="Megan Bergner · Oct 7, 2020 at 9:49 AM">
+                                                            <article class="message-body js-selectToQuote">
+                                                                <div class="bbWrapper">
+                                                                    @Html.Raw(Model.NoiDungBaiViet)
+                                                                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="smilie smilie--sprite smilie--sprite1" alt=":)" title="Smile    :)" loading="lazy" data-shortname=":)">
+                                                                </div>
+                                                                <div class="js-selectToQuoteEnd">&nbsp;</div>
+                                                            </article>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reactionsBar js-reactionsList is-active">
+                                                        <ul class="reactionSummary">
+                                                            <li><span class="reaction reaction--small reaction--4" data-reaction-id="4"><i aria-hidden="true"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="reaction-sprite js-reaction" alt="Wow" title="Wow"></span></li>
+                                                        </ul>
+                                                        <span class="u-srOnly">Reactions:</span>
+                                                        <a class="reactionsBar-link" href="/xf2/themes/posts/443/reactions" data-xf-click="overlay" data-cache="false" rel="nofollow"><bdi>demo</bdi></a>
+                                                    </div>
+                                                    <footer class="message-footer">
+                                                        <div class="js-historyTarget message-historyTarget toggleTarget" data-href="trigger-href"></div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align:center">
+                            @if (Model.TrangThai == 0)
+                            {
+                                <span>Đã Duyệt</span>
+                            }
+                            else
+                            {
+                                <a href="/BanQuanTri/BaiViet/DuyetBaiViet?iMaBaiViet=@Model.MaBaiViet" class="button--cta button rippleButton">Duyệt</a>
+                            }
+                            <a href="/BanQuanTri/BaiViet/XoaBaiViet?iMaBaiViet=@Model.MaBaiViet" class="button--cta button">Xóa</a>
+                        </div>
+                        <div class="blockMessage blockMessage--none">
+                            <div class="shareButtons shareButtons--iconic" data-xf-init="share-buttons" data-page-url="" data-page-title="" data-page-desc="" data-page-image="">
+                                <span class="shareButtons-label">Share:</span>
+                                <div class="shareButtons-buttons">
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--facebook" data-href="https://www.facebook.com/sharer.php?u={url}" id="js-XFUniqueId55">
+                                        <i aria-hidden="true"></i>
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--twitter" data-href="https://twitter.com/intent/tweet?url={url}&amp;text={title}" id="js-XFUniqueId56">
+                                        <i aria-hidden="true"></i>
+                                        <span>Twitter</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--reddit" data-href="https://reddit.com/submit?url={url}&amp;title={title}" id="js-XFUniqueId57">
+                                        <i aria-hidden="true"></i>
+                                        <span>Reddit</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--pinterest" data-href="https://pinterest.com/pin/create/bookmarklet/?url={url}&amp;description={title}&amp;media={image}" id="js-XFUniqueId58">
+                                        <i aria-hidden="true"></i>
+                                        <span>Pinterest</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--tumblr" data-href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}&amp;title={title}" id="js-XFUniqueId59">
+                                        <i aria-hidden="true"></i>
+                                        <span>Tumblr</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--brand shareButtons-button--whatsApp" data-href="https://api.whatsapp.com/send?text={title}&nbsp;{url}" id="js-XFUniqueId60">
+                                        <i aria-hidden="true"></i>
+                                        <span>WhatsApp</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--email" data-href="mailto:?subject={title}&amp;body={url}" id="js-XFUniqueId61">
+                                        <i aria-hidden="true"></i>
+                                        <span>Email</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--share is-hidden" data-xf-init="web-share" data-title="" data-text="" data-url="" data-hide=".shareButtons-button:not(.shareButtons-button--share)" id="js-XFUniqueId62">
+                                        <i aria-hidden="true"></i>
+                                        <span>Share</span>
+                                    </a>
+                                    <a class="shareButtons-button shareButtons-button--link" data-clipboard="{url}" id="js-XFUniqueId63">
+                                        <i aria-hidden="true"></i>
+                                        <span>Link</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BELOW MAIN CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    CKEDITOR.replace("NoiDungBinhLuan");
+</script>

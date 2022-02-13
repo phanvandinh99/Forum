@@ -14,10 +14,13 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             return View();
         }
+        // Xem danh sách bài viết theo chủ đề
         public ActionResult BaiVietChuDe(int iMaChuDe)
         {
             var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == iMaChuDe);
-            ViewBag.BaiViet = db.BaiViets.Where(n => n.MaChuDe == iMaChuDe &n.TrangThai==0).OrderByDescending(n => n.MaBaiViet).ToList();
+            chuDe.LuotXem++;
+            ViewBag.BaiViet = db.BaiViets.Where(n => n.MaChuDe == iMaChuDe & n.TrangThai == 0).OrderByDescending(n => n.MaBaiViet).ToList();
+            db.SaveChanges();
             return View(chuDe);
         }
 
@@ -103,6 +106,9 @@ namespace Forum.Areas.BanQuanTri.Controllers
             bl.TaiKhoan = tk.TaiKhoan;
             bl.MaBaiViet = mabaiviet;
             db.BinhLuans.Add(bl);
+            // cập nhật lại số lượng bình luận bài viếts
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == mabaiviet);
+            baiViet.BinhLuan++;
             db.SaveChanges();
             return Redirect(strURL);
         }
@@ -110,6 +116,9 @@ namespace Forum.Areas.BanQuanTri.Controllers
         public ActionResult XoaBinhLuan(int iMaBinhLuan, string strURL)
         {
             var binhLuan = db.BinhLuans.SingleOrDefault(n => n.MaBinhLuan == iMaBinhLuan);
+            // cập nhật lại số lượng bình luận bài viếts
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == binhLuan.MaBaiViet);
+            baiViet.BinhLuan--;
             db.BinhLuans.Remove(binhLuan);
             db.SaveChanges();
             return Redirect(strURL);
@@ -122,14 +131,42 @@ namespace Forum.Areas.BanQuanTri.Controllers
                 return RedirectToAction("TrangDangNhap", "DangNhap");
             }
             NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
-            var baiViet = db.BaiViets.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n=>n.MaBaiViet);
+            var baiViet = db.BaiViets.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n => n.MaBaiViet);
             return View(baiViet);
-        } 
+        }
         // Hiển thị bài viết mới
         public ActionResult BaiVietMoi()
         {
-            var baiViet = db.BaiViets.ToList().OrderByDescending(n=>n.NgayDang);
+            var baiViet = db.BaiViets.ToList().OrderByDescending(n => n.NgayDang);
             return View(baiViet);
+        }
+        // Bài viết cần duyệt
+        public ActionResult BaiVietCanDuyet()
+        {
+            var baiViet = db.BaiViets.Where(n => n.TrangThai == 1).ToList().OrderByDescending(n => n.NgayDang);
+            return View(baiViet);
+        }
+        // Xem chi tiết
+        public ActionResult ChiTietBaiVietCanDuyet(int iMaBaiViet)
+        {
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+            return View(baiViet);
+        }
+        // Duyệt bài viết
+        public ActionResult DuyetBaiViet(int iMaBaiViet)
+        {
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+            baiViet.TrangThai = 0;
+            db.SaveChanges();
+            return RedirectToAction("ThanhCong", "ThanhCong");
+        }
+        // Xóa bài viết
+        public ActionResult XoaBaiViet(int iMaBaiViet)
+        {
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+            db.BaiViets.Remove(baiViet);
+            db.SaveChanges();
+            return RedirectToAction("ThanhCong", "ThanhCong");
         }
     }
 }
