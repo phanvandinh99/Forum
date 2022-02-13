@@ -19,6 +19,10 @@ namespace Forum.Areas.BanQuanTri.Controllers
         public ActionResult ThanhCong() // Thao tác thành công
         {
             return View();
+        }    
+        public ActionResult XoaKhongThanhCong() // Xóa Không Thành công
+        {
+            return View();
         }
     }
 }

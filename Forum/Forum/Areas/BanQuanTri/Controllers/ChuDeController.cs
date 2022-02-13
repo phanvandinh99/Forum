@@ -63,7 +63,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
         [HttpPost]
         public ActionResult CapNhat(ChuDe model)
         {
-            var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == model.MaDanhMuc);
+            var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == model.MaChuDe);
             chuDe.TenChuDe = model.TenChuDe;
             chuDe.MaDanhMuc = model.MaDanhMuc;
             db.SaveChanges();
@@ -80,6 +80,21 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == iMaChuDe);
             return View(chuDe);
+        }  
+        public ActionResult Xoas(int iMaChuDe)
+        {
+            try
+            {
+                var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == iMaChuDe);
+                db.ChuDes.Remove(chuDe);
+                db.SaveChanges();
+                return RedirectToAction("ThanhCong", "ThongBao");
+            }
+            catch
+            {
+                return RedirectToAction("XoaKhongThanhCong", "ThongBao");
+            }
+           
         }
     }
 }

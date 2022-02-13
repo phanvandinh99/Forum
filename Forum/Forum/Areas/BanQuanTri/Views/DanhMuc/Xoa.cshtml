@@ -1,7 +1,7 @@
 ﻿@using Forum.Models
-@model ChuDe
+@model DanhMuc
 @{
-    ViewBag.Title = "Xóa Chủ Đề";
+    ViewBag.Title = "Xóa Danh Mục";
     Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,7 +19,7 @@
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                         <a href="/xf2/themes/categories/general.1/" itemprop="item">
-                            <span itemprop="name"> Xóa Chủ Đề</span>
+                            <span itemprop="name"> Xóa Danh Mục</span>
                         </a>
                         <meta itemprop="position" content="2">
                     </li>
@@ -35,13 +35,12 @@
                     <!-- ABOVE MAIN CONTENT -->
                     <div class="p-body-pageContent">
                         <div>
-                            <span>Mã Chủ Đề: @Model.MaChuDe</span> <br />
-                            <span>Tên Chủ Đề: @Model.TenChuDe</span> <br />
-                            <span>Số Bài viết: @Model.SoBaiViet</span> <br />
-                            <span>Thuộc Danh Mục: @Model.DanhMuc.TenDanhMuc</span>
+                            <span>Mã Danh Mục: @Model.MaDanhMuc</span> <br />
+                            <span>Tên Danh Mục: @Model.TenDanhMuc</span> <br />
+                            <span>Số Chủ Đề: @Model.SoChuDe</span> <br />
                         </div>
                     </div>
-                    <a href="/BanQuanTri/ChuDe/Xoas?iMaChuDe=@Model.MaChuDe" class="button--primary button rippleButton">Xóa</a>
+                    <a href="/BanQuanTri/DanhMuc/Xoas?iMaDanhMuc=@Model.MaDanhMuc" class="button--primary button rippleButton">Xóa</a>
                 </div>
             </div>
         </div>

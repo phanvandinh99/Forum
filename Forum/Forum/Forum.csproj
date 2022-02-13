@@ -668,6 +668,7 @@
     <Content Include="Assets\BanQuanTri\css\cssee5e.css" />
     <Content Include="Assets\BanQuanTri\css\cssfb87.css" />
     <Content Include="Assets\BanQuanTri\css\cssfca8.css" />
+    <Content Include="Assets\BanQuanTri\js\list.min.js" />
     <Content Include="Assets\BanQuanTri\js\themehouse\acui\defer.min0db4.js" />
     <Content Include="Assets\BanQuanTri\js\themehouse\acui\deferFab.min0db4.js" />
     <Content Include="Assets\BanQuanTri\js\themehouse\acui\deferNodesCollapse.min0db4.js" />
@@ -775,6 +776,11 @@
     <Content Include="Areas\BanQuanTri\Views\ChuDe\CapNhat.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\ChuDe\XemChiTiet.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\ChuDe\Xoa.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\ThongBao\XoaKhongThanhCong.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DanhMuc\ThemMoi.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DanhMuc\CapNhat.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DanhMuc\XemChiTiet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\DanhMuc\Xoa.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

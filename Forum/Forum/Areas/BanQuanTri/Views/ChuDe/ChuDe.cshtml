@@ -4,7 +4,7 @@
     ViewBag.Title = "Chủ Đề";
     Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
 }
-<div class="p-body">
+<div class="p-body" id="DanhSachChuDe">
     <div class="p-body-inner ">
         <!--XF:EXTRA_OUTPUT-->
         <div class="breadcrumb ">
@@ -23,6 +23,8 @@
                         <meta itemprop="position" content="2">
                     </li>
                 </ul>
+                <input type="text" placeholder="Tìm kiếm..." class="search" />
+
                 <a href="/BanQuanTri/ChuDe/ThemMoi" class="button--link button--wrap button rippleButton rippleButton rippleButton">Thêm Mới<div class="ripple-container"></div></a>
             </div>
         </div>
@@ -48,7 +50,7 @@
                                     </div>
                                     <div class="tabs-extra tabs-extra--minor">
                                         <a class="menuTrigger" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">Filters</a>
-                                        <div class="menu menu--wide" data-menu="menu" aria-hidden="true" data-href="/xf2/themes/forums/share-your-opinion.35/filters" data-load-target=".js-filterMenuBody">
+                                        <div class="menu menu--wide" data-menu="menu" aria-hidden="true" data-href="" data-load-target=".js-filterMenuBody">
                                             <div class="menu-content">
                                                 <h4 class="menu-header">Show only:</h4>
                                                 <div class="js-filterMenuBody">
@@ -60,26 +62,26 @@
                                 </h2>
                                 <div class="block-body">
                                     <div class="structItemContainer">
-                                        <div class="structItemContainer-group js-threadList">
+                                        <div class="structItemContainer-group js-threadList list">
                                             @foreach (var item in Model)
                                             {
                                                 <div class="structItem structItem--thread js-inlineModContainer js-threadListItem-75" data-author="Megan Bergner">
                                                     <div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
                                                         <div class="structItem-title" uix-href="/xf2/themes/threads/favorite-cookie.75/">
-                                                            <a href="/BanQuanTri/BaiViet/BaiVietChuDe?iMaChuDe=@item.MaChuDe" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">@item.TenChuDe</a>
+                                                            <a href="/BanQuanTri/BaiViet/BaiVietChuDe?iMaChuDe=@item.MaChuDe" class="TenChuDe" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">@item.TenChuDe</a>
                                                         </div>
                                                         <div class="structItem-minor">
                                                             <ul class="structItem-parts">
                                                                 <li>
                                                                     <a href="/BanQuanTri/BaiViet/BaiVietChuDe?iMaChuDe=@item.MaChuDe" class="username " dir="auto" data-user-id="11" data-xf-init="member-tooltip" id="js-XFUniqueId13">
-                                                                        <span class="username--staff username--moderator username--admin">Danh mục: @item.DanhMuc.TenDanhMuc</span>
+                                                                        <span class="username--staff username--moderator username--admin TenDanhMuc">Danh mục: @item.DanhMuc.TenDanhMuc</span>
                                                                     </a>
                                                                 </li>
                                                                 @*<li class="structItem-startDate">
-                                                                    <a href="" rel="nofollow">
-                                                                        <time class="u-dt" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">@item.NgayDang</time>
-                                                                    </a>
-                                                                </li>*@
+                                                                        <a href="" rel="nofollow">
+                                                                            <time class="u-dt" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">@item.NgayDang</time>
+                                                                        </a>
+                                                                    </li>*@
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -90,7 +92,7 @@
                                                     </div>
                                                     <div class="structItem-cell structItem-cell--latest ">
                                                         <a href="/BanQuanTri/ChuDe/XemChiTiet?iMaChuDe=@item.MaChuDe">Chi Tiết</a> |
-                                                        <a href="#">Xóa</a> |
+                                                        <a href="/BanQuanTri/ChuDe/Xoa?iMaChuDe=@item.MaChuDe">Xóa</a> |
                                                         <a href="/BanQuanTri/ChuDe/CapNhat?iMaChuDe=@item.MaChuDe">Cập Nhật</a>
                                                     </div>
                                                 </div>
@@ -99,20 +101,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="block-outer block-outer--after">
-                                <div class="block-outer-opposite">
-                                    <a href="/xf2/themes/login/" class="button--link button--wrap button rippleButton" data-xf-click="overlay">
-                                        <span class="button-text">
-                                            You must log in or register to post here.
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <ul class="pagination"></ul>
                     <!-- BELOW MAIN CONTENT -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- #region Script lọc -->
+<script type="text/javascript">
+    var options = {
+        valueNames: ['TenChuDe', 'TenDanhMuc'],
+        page: 8,
+        pagination: true
+    };
+    var userList = new List('DanhSachChuDe', options);
+</script>
+<!-- #endregion -->
