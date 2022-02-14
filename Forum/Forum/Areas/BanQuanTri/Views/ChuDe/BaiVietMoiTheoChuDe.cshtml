@@ -1,10 +1,13 @@
 ﻿@using Forum.Models;
-@model IEnumerable<BaiViet>
+@model ChuDe
 @{
     ViewBag.Title = "Bài Viết Mới Theo Chủ Đề";
     Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
 }
-<div class="p-body">
+@{
+    IEnumerable<BaiViet> DanhSachBaiViet = ViewBag.BaiViet as IEnumerable<BaiViet>;
+}
+<div class="p-body" id="DanhSachBaiViets">
     <div class="p-body-inner ">
         <!--XF:EXTRA_OUTPUT-->
         <div class="breadcrumb ">
@@ -17,18 +20,34 @@
                         <meta itemprop="position" content="1">
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                        <a href="#" itemprop="item">
-                            <span itemprop="name"></span>
-                        </a>
-                        <meta itemprop="position" content="2">
-                    </li> 
-                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                        <a href="#" itemprop="item">
-                            <span itemprop="name">Bài Viết Mới Theo Chủ Đề</span>
+                        <a href="" itemprop="item">
+                            <span itemprop="name">@Model.TenChuDe</span>
                         </a>
                         <meta itemprop="position" content="2">
                     </li>
                 </ul>
+                <!-- #region Tìm Kiếm -->
+                <div data-xf-init=" password-hide-show" data-show-text="Show" data-hide-text="Hide">
+                    <div class="inputGroup inputGroup--joined">
+                        <input type="text" placeholder="Tìm kiếm..." class="input js-password input--passwordHideShow search">
+                        <div class="inputGroup-text">
+                            <label class="iconic iconic--hideShow js-hideShowContainer">
+                                <input type="checkbox" value="1"><span>Tìm Kiếm</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- #endregion -->
+
+                @if (Session["TaiKhoan"] == null && Session["TaiKhoanKH"] == null)
+                {
+                    <a href="/BanQuanTri/DangNhap/TrangDangNhap" class="#"><b class="button-text">Đăng Nhập Để Thêm Mới Bài Viết</b></a>
+                }
+                else if (Session["TaiKhoan"] != null) // tồn tại nhân viên
+                {
+                    NguoiDung nv = (NguoiDung)Session["TaiKhoan"];
+                    <a href="/BanQuanTri/BaiViet/ThemMoiBaiViet?iMaChuDe=@Model.MaChuDe" class="button--link button--wrap button rippleButton rippleButton">Thêm Mới</a>
+                }
             </div>
         </div>
         <noscript>
@@ -52,7 +71,7 @@
                                             <i class="hScroller-action hScroller-action--end" aria-hidden="true"></i><i class="hScroller-action hScroller-action--start" aria-hidden="true"></i>
                                     </div>
                                     <div class="tabs-extra tabs-extra--minor">
-                                        <a  data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">Lọc</a>
+                                        <a data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">Lọc</a>
                                         <div class="menu menu--wide" data-menu="menu" aria-hidden="true" data-href="" data-load-target=".js-filterMenuBody">
                                             <div class="menu-content">
                                                 @*<h4 class="menu-header">Show only:</h4>*@
@@ -64,9 +83,9 @@
                                     </div>
                                 </h2>
                                 <div class="block-body">
-                                    <div class="structItemContainer">
+                                    <div class="structItemContainer list">
                                         <div class="structItemContainer-group js-threadList">
-                                            @foreach (var item in Model)
+                                            @foreach (var item in DanhSachBaiViet)
                                             {
                                                 <div class="structItem structItem--thread js-inlineModContainer js-threadListItem-75" data-author="Megan Bergner">
                                                     <div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
@@ -77,7 +96,18 @@
                                                             </li>
                                                         </ul>
                                                         <div class="structItem-title" uix-href="/xf2/themes/threads/favorite-cookie.75/">
-                                                            <a href="/BanQuanTri/BaiViet/BaiViet?iMaBaiviet=@item.MaBaiViet" class="" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">@item.TenBaiViet</a>
+                                                            <a href="/BanQuanTri/BaiViet/BaiViet?iMaBaiviet=@item.MaBaiViet" class="TenBaiViet" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">
+                                                                @item.TenBaiViet
+                                                            </a>
+                                                        </div>
+                                                        <div class="structItem-minor">
+                                                            <ul class="structItem-parts">
+                                                                <li class="structItem-startDate">
+                                                                    <a href="" rel="nofollow">
+                                                                        <time class="u-dt NgayDang" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">Lúc: @item.NgayDang</time>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                     <div class="structItem-cell structItem-cell--meta" title="First message reaction score: 0">
@@ -91,16 +121,16 @@
                                                         </dl>
                                                     </div>
                                                     <div class="structItem-cell structItem-cell--latest ">
-                                                        <a href="/xf2/themes/threads/favorite-cookie.75/latest" rel="nofollow"><time class="structItem-latestDate u-dt" dir="auto">@string.Format("{0:dd/MM/yyyy}", item.NguoiDung.NgaySinh)</time></a>
+                                                        <a rel="nofollow"><time class="structItem-latestDate u-dt" dir="auto">@string.Format("{0:dd/MM/yyyy}", item.NguoiDung.NgaySinh)</time></a>
                                                         <div class="structItem-minor">
                                                             <a href="/xf2/themes/members/dalton-prock.1/" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip" id="js-XFUniqueId14">
                                                                 @if (item.NguoiDung.MaQuyen == 1)
                                                                 {
-                                                                    <span class="username--staff username--moderator username--admin" style="color:red">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
+                                                                    <span class="username--staff username--moderator username--admin HoTen" style="color:red">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
                                                                 }
                                                                 else
                                                                 {
-                                                                    <span class="username--staff username--moderator username--admin">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
+                                                                    <span class="username--staff username--moderator username--admin HoTen">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
                                                                 }
                                                             </a>
                                                         </div>
@@ -120,9 +150,20 @@
                             </div>
                         </div>
                     </div>
+                    <ul class="pagination"></ul>
                     <!-- BELOW MAIN CONTENT -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- #region Script lọc -->
+<script type="text/javascript">
+    var options = {
+        valueNames: ['TenBaiViet', 'HoTen', 'NgayDang'],
+        page: 8,
+        pagination: true
+    };
+    var userList = new List('DanhSachBaiViets', options);
+</script>
+<!-- #endregion -->

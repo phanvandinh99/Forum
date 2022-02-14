@@ -50,6 +50,9 @@ namespace Forum.Areas.BanQuanTri.Controllers
                 if (tk.MaQuyen == 1) // admin
                 {
                     bv.TrangThai = 0;
+                    // cộng số lượng trong chủ đề
+                    var chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == maChuDe);
+                    chude.SoBaiViet++;
                 }
                 else
                 {
@@ -65,10 +68,6 @@ namespace Forum.Areas.BanQuanTri.Controllers
                 var diem = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == tk.TaiKhoan);
                 diem.DiemThanhTich = diem.DiemThanhTich + 5;
                 diem.SoBaiViet = diem.SoBaiViet + 1;
-
-                // cộng số lượng trong chủ đề
-                var chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == maChuDe);
-                chude.SoBaiViet++;
 
                 db.BaiViets.Add(bv);
                 db.SaveChanges();
@@ -155,10 +154,22 @@ namespace Forum.Areas.BanQuanTri.Controllers
         // Duyệt bài viết
         public ActionResult DuyetBaiViet(int iMaBaiViet)
         {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
             var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
             baiViet.TrangThai = 0;
+
+            if (baiViet.NguoiDung.MaQuyen==2) // thành viên
+            {
+                // cộng số lượng trong chủ đề
+                var chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == baiViet.MaChuDe);
+                chude.SoBaiViet++;
+            }
             db.SaveChanges();
-            return RedirectToAction("ThanhCong", "ThanhCong");
+            return RedirectToAction("ThanhCong", "ThongBao");
         }
         // Xóa bài viết
         public ActionResult XoaBaiViet(int iMaBaiViet)
@@ -166,7 +177,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
             var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
             db.BaiViets.Remove(baiViet);
             db.SaveChanges();
-            return RedirectToAction("ThanhCong", "ThanhCong");
+            return RedirectToAction("ThanhCong", "ThongBao");
         }
     }
 }

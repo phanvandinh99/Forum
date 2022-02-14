@@ -18,8 +18,12 @@ namespace Forum.Areas.BanQuanTri.Controllers
         // Bài viết mới theo chủ đề
         public ActionResult BaiVietMoiTheoChuDe(int iMaChuDe)
         {
-            var baiViet = db.BaiViets.Where(n=>n.MaChuDe==iMaChuDe).ToList().OrderByDescending(n => n.NgayDang);
-            return View(baiViet);
+            ViewBag.BaiViet = db.BaiViets.Where(n=>n.MaChuDe==iMaChuDe & n.TrangThai==0).ToList().OrderByDescending(n => n.NgayDang);
+            var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == iMaChuDe);
+            // Cộng lượt xem khi xem chi tiết
+            chuDe.LuotXem++;
+            db.SaveChanges();
+            return View(chuDe);
         }
         // Hiển thị chủ đề
         public ActionResult ChuDe()

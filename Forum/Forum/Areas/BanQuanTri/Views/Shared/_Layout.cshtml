@@ -383,64 +383,107 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="p-navEl u-ripple " data-has-children="true">
-                                            <a href=""
-                                               class="p-navEl-link p-navEl-link--splitMenu "
-                                               data-nav-id="xfrm"><span>Quản Lý</span></a>
-                                            <a data-xf-key="5"
-                                               data-xf-click="menu"
-                                               data-menu-pos-ref="< .p-navEl"
-                                               class="p-navEl-splitTrigger"
-                                               role="button"
-                                               tabindex="0"
-                                               aria-label="Toggle expanded"
-                                               aria-expanded="false"
-                                               aria-haspopup="true">
-                                            </a>
-                                            <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
-                                                <div class="menu-content">
-                                                    <a href="/BanQuanTri/DanhMuc/DanhMuc"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfrmLatestReviews"><span>Danh Mục</span></a>
-                                                    <a href="/BanQuanTri/ChuDe/ChuDe"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfrmSearchResources"><span>Chủ Đề</span></a> 
-                                                    <a href="/BanQuanTri/BaiViet/BaiVietCanDuyet"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="xfrmSearchResources"><span>Duyệt Bài</span></a>
+                                    @if (Session["TaiKhoan"] == null)
+                                    {
+                                    }
+                                    else
+                                    {
+                                        NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+                                        if (tk.MaQuyen == 1) // admin
+                                        {
+                                            <li>
+                                                <div class="p-navEl u-ripple " data-has-children="true">
+                                                    <a href=""
+                                                       class="p-navEl-link p-navEl-link--splitMenu "
+                                                       data-nav-id="xfrm"><span>Quản Lý</span></a>
+                                                    <a data-xf-key="5"
+                                                       data-xf-click="menu"
+                                                       data-menu-pos-ref="< .p-navEl"
+                                                       class="p-navEl-splitTrigger"
+                                                       role="button"
+                                                       tabindex="0"
+                                                       aria-label="Toggle expanded"
+                                                       aria-expanded="false"
+                                                       aria-haspopup="true">
+                                                    </a>
+                                                    <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+                                                        <div class="menu-content">
+                                                            <a href="/BanQuanTri/DanhMuc/DanhMuc"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               data-nav-id="xfrmLatestReviews"><span>Danh Mục</span></a>
+                                                            <a href="/BanQuanTri/ChuDe/ChuDe"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               data-nav-id="xfrmSearchResources"><span>Chủ Đề</span></a>
+                                                            <a href="/BanQuanTri/BaiViet/BaiVietCanDuyet"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               data-nav-id="xfrmSearchResources"><span>Duyệt Bài</span></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="p-navEl u-ripple " data-has-children="true">
-                                            <a 
-                                               class="p-navEl-link p-navEl-link--splitMenu "
-                                               data-nav-id="members"><span>Thành Viên</span></a>
-                                            <a data-xf-key="6"
-                                               data-xf-click="menu"
-                                               data-menu-pos-ref="< .p-navEl"
-                                               class="p-navEl-splitTrigger"
-                                               role="button"
-                                               tabindex="0"
-                                               aria-label="Toggle expanded"
-                                               aria-expanded="false"
-                                               aria-haspopup="true">
-                                            </a>
-                                            <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
-                                                <div class="menu-content">
-                                                    <a href="/BanQuanTri/NguoiDung/ThanhVien?iMaQuyen=1"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       data-nav-id="currentVisitors"><span>Thành Viên</span></a>
-                                                    <a href="/BanQuanTri/NguoiDung/ThanhVien?iMaQuyen=2"
-                                                       class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
-                                                       rel="nofollow"
-                                                       data-nav-id="newProfilePosts"><span>Ban Quản Trị</span></a>
+                                            </li>
+                                            <li>
+                                                <div class="p-navEl u-ripple " data-has-children="true">
+                                                    <a class="p-navEl-link p-navEl-link--splitMenu "
+                                                       data-nav-id="members"><span>Thành Viên</span></a>
+                                                    <a data-xf-key="6"
+                                                       data-xf-click="menu"
+                                                       data-menu-pos-ref="< .p-navEl"
+                                                       class="p-navEl-splitTrigger"
+                                                       role="button"
+                                                       tabindex="0"
+                                                       aria-label="Toggle expanded"
+                                                       aria-expanded="false"
+                                                       aria-haspopup="true">
+                                                    </a>
+                                                    <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+                                                        <div class="menu-content">
+                                                            <a href="/BanQuanTri/NguoiDung/ThanhVien?iMaQuyen=1"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               data-nav-id="currentVisitors"><span>Thành Viên</span></a>
+                                                            <a href="/BanQuanTri/NguoiDung/ThanhVien?iMaQuyen=2"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               rel="nofollow"
+                                                               data-nav-id="newProfilePosts"><span>Ban Quản Trị</span></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
+                                        }
+                                        else if (tk.MaQuyen == 2) // thành viên
+                                        {
+                                            <li>
+                                                <div class="p-navEl u-ripple " data-has-children="true">
+                                                    <a class="p-navEl-link p-navEl-link--splitMenu "
+                                                       data-nav-id="members"><span>Thông Tin Cá Nhân</span></a>
+                                                    <a data-xf-key="6"
+                                                       data-xf-click="menu"
+                                                       data-menu-pos-ref="< .p-navEl"
+                                                       class="p-navEl-splitTrigger"
+                                                       role="button"
+                                                       tabindex="0"
+                                                       aria-label="Toggle expanded"
+                                                       aria-expanded="false"
+                                                       aria-haspopup="true">
+                                                    </a>
+                                                    <div class="menu menu--structural" data-menu="menu" aria-hidden="true">
+                                                        <div class="menu-content">
+                                                            <a href="/BanQuanTri/DangNhap/CapNhat?sTaiKhoan=@tk.TaiKhoan"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               data-nav-id="currentVisitors"><span>Cập Nhật Thông Tin</span></a>
+                                                            <a href="/BanQuanTri/BaiViet/BaiVietCuaBan"
+                                                               class="menu-linkRow u-ripple u-indentDepth0 js-offCanvasCopy "
+                                                               rel="nofollow"
+                                                               data-nav-id="newProfilePosts"><span>Bài Viết Của Bạn</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else //khách hàng
+                                        {
+
+                                        }
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -670,9 +713,9 @@
                                 <div class="block-container block-container--noStripRadius">
                                     <h3 class="block-minorHeader">Điều Hướng</h3>
                                     <div class="block-body">
-                                        <a class="blockLink rippleButton" href="https://demo.themehouse.com/xf2/themes">Home</a>
-                                        <a class="blockLink rippleButton" href="index.html">Forums</a>
-                                        <a class="blockLink rippleButton" href="misc/contact.html" data-xf-click="overlay">Contact us</a>
+                                        <a class="blockLink rippleButton" href="/BanQuanTri/Home/Index">Trang Chủ</a>
+                                        <a class="blockLink rippleButton" href="/BanQuanTri/Home/Index">Diễn Đàn</a>
+                                        <a class="blockLink rippleButton" href="/BanQuanTri/BaiViet/BaiVietMoi" data-xf-click="overlay">Bài Viết</a>
                                     </div>
                                 </div>
                             </div>
@@ -704,11 +747,11 @@
                             <div class="p-footer-row-main">
                                 <ul class="p-footer-linkList p-footer-choosers">
                                     <li><a id="uix_widthToggle--trigger" data-xf-init="tooltip" title="Toggle width" rel="nofollow"><i class="fa--xf far fa-compress-alt" aria-hidden="true"></i></a></li>
-                                    <li><a href="misc/style.html" data-xf-click="overlay" data-xf-init="tooltip" title="Style chooser" rel="nofollow">UI.X</a></li>
+                                    @*<li><a href="misc/style.html" data-xf-click="overlay" data-xf-init="tooltip" title="Style chooser" rel="nofollow">UI.X</a></li>*@
                                 </ul>
                             </div>
                         </div>
-                        <div class="p-footer-row-opposite">
+                        @*<div class="p-footer-row-opposite">
                             <ul class="p-footer-linkList">
                                 <li><a href="misc/contact.html" data-xf-click="overlay">Contact us</a></li>
                                 <li><a href="help/terms/index.html">Terms and rules</a></li>
@@ -718,7 +761,7 @@
                                 <li><a href="#top" title="Top" data-xf-click="scroll-to"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></li>
                                 <li><a href="forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa fa-rss"></i><span class="u-srOnly">RSS</span></span></a></li>
                             </ul>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </footer>
