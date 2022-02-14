@@ -18,7 +18,6 @@ namespace Forum.Areas.BanQuanTri.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TrangDangNhap(FormCollection f)
         {
-
             // Kiểm tra tên đăng nhập và mật khẩu
             string sTaiKhoan = f["txtTaiKhoan"].ToString();
             string sMatKhau = f["txtMatKhau"].ToString();

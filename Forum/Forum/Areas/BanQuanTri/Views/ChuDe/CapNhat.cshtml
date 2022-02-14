@@ -38,6 +38,7 @@
                     <!-- ABOVE MAIN CONTENT -->
                     @using (Html.BeginForm("CapNhat", "ChuDe"))
                     {
+                        <input type="text" class="input" autofocus="autofocus" style="display:none" autocomplete="username" name="MaChuDe" value="@Model.MaChuDe">
                         <div class="p-body-pageContent">
                             <div class="blocks">
                                 <input type="hidden" name="_xfToken" value="1644569066,ed7fe79af36674dd156ba5117bb51958">
@@ -71,7 +72,7 @@
                                                 <div class="formSubmitRow-bar"></div>
                                                 <div class="formSubmitRow-controls">
                                                     <button type="submit" class="button--primary button rippleButton">
-                                                        <span class="button-text">Thêm Mới</span>
+                                                        <span class="button-text">Cập Nhật</span>
                                                     </button>
                                                 </div>
                                             </div>

@@ -57,7 +57,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
             var danhMuc = db.DanhMucs.SingleOrDefault(n => n.MaDanhMuc == iMaDanhMuc);
             return View(danhMuc);
         }
-        // Xóa chủ đề
+        // Xóa danh mục
         public ActionResult Xoa(int iMaDanhMuc)
         {
             var chuDe = db.DanhMucs.SingleOrDefault(n => n.MaDanhMuc == iMaDanhMuc);
