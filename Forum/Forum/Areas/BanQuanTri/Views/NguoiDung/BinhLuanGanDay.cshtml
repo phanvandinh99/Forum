@@ -1,10 +1,10 @@
 ﻿@using Forum.Models;
-@model IEnumerable<LuotThich>
+@model IEnumerable<BinhLuan>
 @{
-    ViewBag.Title = "Bài Viết Đã Thích";
+    ViewBag.Title = "Bình Luận Gần Đây";
     Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
 }
-<div class="p-body" id="DanhSachBaiVietDaThich">
+<div class="p-body" id="DanhSachBinhLuanGanDay">
     <div class="p-body-inner ">
         <!--XF:EXTRA_OUTPUT-->
         <div class="breadcrumb ">
@@ -18,7 +18,7 @@
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                         <a href="#" itemprop="item">
-                            <span itemprop="name">Bài Viết Đã Thích</span>
+                            <span itemprop="name">Danh Sách Bình Luận</span>
                         </a>
                         <meta itemprop="position" content="2">
                     </li>
@@ -38,22 +38,11 @@
                                     <div class="hScroller" data-xf-init="h-scroller">
                                         <span class="hScroller-scroll is-calculated" style="margin-bottom: -47px;">
                                             <a href="/xf2/themes/forums/share-your-opinion.35/" class="tabs-tab is-active rippleButton">
-                                                Danh Sách Lượt Thích
+                                                Danh Sách Bình Luận Bài Viết Gần Đây
                                                 <div class="ripple-container"></div>
                                             </a>
                                             <i class="hScroller-action hScroller-action--end" aria-hidden="true"></i><i class="hScroller-action hScroller-action--start" aria-hidden="true"></i>
                                     </div>
-                                    @*<div class="tabs-extra tabs-extra--minor">
-                                        <a class="menuTrigger" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">Filters</a>
-                                        <div class="menu menu--wide" data-menu="menu" aria-hidden="true" data-href="" data-load-target=".js-filterMenuBody">
-                                            <div class="menu-content">
-                                                <h4 class="menu-header">Show only:</h4>
-                                                <div class="js-filterMenuBody">
-                                                    <div class="menu-row">Loading…</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>*@
                                 </h2>
                                 <div class="block-body">
                                     <div class="structItemContainer">
@@ -100,6 +89,6 @@
         page: 8,
         pagination: true
     };
-    var userList = new List('DanhSachBaiVietDaThich', options);
+    var userList = new List('DanhSachBinhLuanGanDay', options);
 </script>
 <!-- #endregion -->

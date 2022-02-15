@@ -149,7 +149,7 @@ create table BinhLuan
 	MaBaiViet int,
 	TaiKhoan varchar(50),
 
-	Foreign key(MaBaiViet) references BaiViet(MaBaiViet),
+	Foreign key(MaBaiViet) references BaiViet(MaBaiViet) on delete cascade,
 	Foreign key(TaiKhoan) references NguoiDung(TaiKhoan),
 )
 --go
@@ -172,7 +172,7 @@ create table LuotThich
 	TaiKhoan varchar(50),
 	primary key(MaBaiViet, TaiKhoan),
 	NgayThich datetime default(getdate()),
-	Foreign key(MaBaiViet) references BaiViet(MaBaiViet),
+	Foreign key(MaBaiViet) references BaiViet(MaBaiViet) on delete cascade,
 	Foreign key(TaiKhoan) references NguoiDung(TaiKhoan),
 )
 select * from LuotThich

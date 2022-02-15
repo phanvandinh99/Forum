@@ -792,6 +792,8 @@
     <Content Include="Areas\BanQuanTri\Views\BaiViet\ChiTietBaiVietCanDuyet.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\BaiViet\CapNhatBinhLuan.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\NguoiDung\BaiVietDaLike.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\BinhLuanGanDay.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\CapNhatBaiViet.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

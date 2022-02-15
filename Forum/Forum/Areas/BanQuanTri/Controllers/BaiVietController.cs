@@ -153,6 +153,37 @@ namespace Forum.Areas.BanQuanTri.Controllers
                 return View(binhLuan);
             }
         }
+        // Cập nhật Bài Viet
+        public ActionResult CapNhatBaiViet(int iMaBaiViet)
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+            return View(baiViet);
+        }
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken()]
+        public ActionResult CapNhatBaiViet(BaiViet model)
+        {
+            try
+            {
+                var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == model.MaBaiViet);
+                baiViet.TenBaiViet = model.TenBaiViet;
+                baiViet.NoiDungBaiViet = model.NoiDungBaiViet;
+                baiViet.NgayCapNhat = DateTime.Now;
+                db.SaveChanges();
+                ViewBag.ThongBao = "Cập Nhật Bài Viết Thành Công";
+                return View(baiViet);
+            }
+            catch
+            {
+                ViewBag.ThongBao = "Cập Nhật Bài Viết Thất Bại";
+                var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == model.MaBaiViet);
+                return View(baiViet);
+            }
+        }
         // Bài Viết Của Bạn
         public ActionResult BaiVietCuaBan()
         {
@@ -203,9 +234,17 @@ namespace Forum.Areas.BanQuanTri.Controllers
             return RedirectToAction("ThanhCong", "ThongBao");
         }
         // Xóa bài viết
-        public ActionResult XoaBaiViet(int iMaBaiViet)
+        public ActionResult XoaBaiviet(int iMaBaiViet)
         {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
             var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+            // trừ trong chủ đề
+            var chuDe = db.ChuDes.SingleOrDefault(n => n.MaChuDe == baiViet.MaChuDe);
+            chuDe.SoBaiViet--;
             db.BaiViets.Remove(baiViet);
             db.SaveChanges();
             return RedirectToAction("ThanhCong", "ThongBao");
@@ -243,10 +282,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
             }
             // hiển thị danh sách người like
             ViewBag.Like = db.LuotThiches.Where(n => n.MaBaiViet == iMaBaiViet).ToList();
-
             return RedirectToAction("BaiViet", "BaiViet", new { iMaBaiviet = iMaBaiViet});
-
-            
         }
     }
 }

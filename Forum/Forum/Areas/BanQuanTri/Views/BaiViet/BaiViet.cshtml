@@ -133,11 +133,33 @@
                                                             </ul>*@
                                                         <ul class="message-attribution-opposite message-attribution-opposite--list ">
                                                             <li style="color:black">
-                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow">
-                                                                    [Ngày Đăng: @Model.NgayDang]
+                                                                @if (Session["TaiKhoan"] != null)
+                                                                {
+                                                                    NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+                                                                    if (tk.MaQuyen == 1)// admin
+                                                                    {
+                                                                        <a href="/BanQuanTri/BaiViet/XoaBaiviet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
+                                                                            [Xóa]
+                                                                        </a>
+                                                                        <a href="/BanQuanTri/BaiViet/CapNhatBaiViet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
+                                                                            [Cập Nhật]
+                                                                        </a>
+                                                                    }
+                                                                    if (tk.TaiKhoan == Model.TaiKhoan)
+                                                                    {
+                                                                        <a href="/BanQuanTri/BaiViet/XoaBaiviet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
+                                                                            [Xóa]
+                                                                        </a>
+                                                                        <a href="/BanQuanTri/BaiViet/CapNhatBaiViet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
+                                                                            [Cập Nhật]
+                                                                        </a>
+                                                                    }
+                                                                }
+                                                                <a>
+                                                                    [Ngày Đăng: @string.Format("{0:dd/MM/yyyy}", Model.NgayDang)]
                                                                 </a>
-                                                                <a href="/xf2/themes/threads/show-recommendations.77/post-443" rel="nofollow">
-                                                                    [Cập Nhật Lần Cuối: @Model.NgayCapNhat]
+                                                                <a>
+                                                                    [Cập Nhật: @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)]
                                                                 </a>
                                                             </li>
                                                             <li>

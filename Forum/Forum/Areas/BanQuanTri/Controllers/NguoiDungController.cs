@@ -87,6 +87,17 @@ namespace Forum.Areas.BanQuanTri.Controllers
             NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
             var like = db.LuotThiches.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n=>n.NgayThich); // Thành viên
             return View(like);
+        } 
+        // Bình luận gần đây
+        public ActionResult BinhLuanGanDay()
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+            var binhLuan = db.BinhLuans.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n=>n.NgayBinhLuan); // Thành viên
+            return View(binhLuan);
         }
     }
 }
