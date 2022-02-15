@@ -6,6 +6,9 @@
 }
 @{
     IEnumerable<BinhLuan> DanhSachBinhLuan = ViewBag.BinhLuan as IEnumerable<BinhLuan>;
+    IEnumerable<LuotThich> DanhSachLuotThich = ViewBag.Like as IEnumerable<LuotThich>;
+    int SL = int.Parse(Model.LuotThich.ToString()) - 1;
+    Boolean KiemTra = false;
 }
 <div class="p-body">
     <div class="p-body-inner ">
@@ -14,7 +17,7 @@
             <div class="pageContent">
                 <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                        <a href="/xf2/themes/" itemprop="item">
+                        <a href="/BanQuanTri/Home/Index" itemprop="item">
                             <span itemprop="name">Trang Chủ</span>
                         </a>
                         <meta itemprop="position" content="1">
@@ -162,16 +165,86 @@
                                                             </article>
                                                         </div>
                                                     </div>
+                                                    <!-- #region Thích -->
                                                     <div class="reactionsBar js-reactionsList is-active">
-                                                        <ul class="reactionSummary">
-                                                            <li><span class="reaction reaction--small reaction--4" data-reaction-id="4"><i aria-hidden="true"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="reaction-sprite js-reaction" alt="Wow" title="Wow"></span></li>
-                                                        </ul>
-                                                        <span class="u-srOnly">Reactions:</span>
-                                                        <a class="reactionsBar-link" href="/xf2/themes/posts/443/reactions" data-xf-click="overlay" data-cache="false" rel="nofollow"><bdi>demo</bdi></a>
+                                                        @if (Session["TaiKhoan"] == null)
+                                                        {
+                                                            <ul class="reactionSummary">
+                                                                <li>
+                                                                    <span class="reaction reaction--small reaction--4" data-reaction-id="4">
+                                                                        <img src="~/Assets/BanQuanTri/images/like1.png" class="reaction-sprite js-reaction" alt="Like" title="Like">
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                            <span class="u-srOnly">Reactions:</span>
+                                                            <span class="reactionsBar-link" href="/BanQuanTri/BaiViet/Like?iMaBaiViet=@Model.MaBaiViet" data-cache="false" rel="nofollow">
+                                                                <bdi>Thích (@Model.LuotThich)</bdi>
+                                                            </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (DanhSachLuotThich.Count() != 0) // bài viết đã có lượt thích
+                                                            {
+                                                                NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+                                                                foreach (var item in DanhSachLuotThich)
+                                                                {
+                                                                    if (tk.TaiKhoan == item.TaiKhoan) // đã like
+                                                                    {
+                                                                        <ul class="reactionSummary">
+                                                                            <li>
+                                                                                <span class="reaction reaction--small reaction--4" data-reaction-id="4">
+                                                                                    <img src="~/Assets/BanQuanTri/images/like2.png" class="reaction-sprite js-reaction" alt="Hủy Like" title="HủyLike">
+                                                                                </span>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <span class="u-srOnly">Reactions:</span>
+                                                                        <a class="reactionsBar-link" href="/BanQuanTri/BaiViet/Like?iMaBaiViet=@Model.MaBaiViet" data-cache="false" rel="nofollow">
+                                                                            @if (SL == 0)
+                                                                            {
+                                                                                <bdi>@tk.Ho @tk.Ten đã thích</bdi>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <bdi>@tk.Ten và @SL người khác</bdi>
+                                                                            }
+                                                                        </a>
+                                                                        KiemTra = true; // đã có
+                                                                    }
+                                                                }
+                                                                if (KiemTra == false) // chưa có
+                                                                {
+                                                                    <ul class="reactionSummary">
+                                                                        <li>
+                                                                            <span class="reaction reaction--small reaction--4" data-reaction-id="4">
+                                                                                <img src="~/Assets/BanQuanTri/images/like1.png" class="reaction-sprite js-reaction" alt="Like" title="Like">
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <span class="u-srOnly">Reactions:</span>
+                                                                    <a class="reactionsBar-link" href="/BanQuanTri/BaiViet/Like?iMaBaiViet=@Model.MaBaiViet" data-cache="false" rel="nofollow">
+                                                                        <bdi>Thích @Model.LuotThich</bdi>
+                                                                    </a>
+
+                                                                }
+                                                            }
+                                                            //else // bài viết chưa có lượt thích
+                                                            if (DanhSachLuotThich.Count() == 0 || DanhSachLuotThich == null) // bài viết chưa có lượt thích
+                                                            {
+                                                                <ul class="reactionSummary">
+                                                                    <li>
+                                                                        <span class="reaction reaction--small reaction--4" data-reaction-id="4">
+                                                                            <img src="~/Assets/BanQuanTri/images/like1.png" class="reaction-sprite js-reaction" alt="Like" title="Like">
+                                                                        </span>
+                                                                    </li>
+                                                                </ul>
+                                                                <span class="u-srOnly">Reactions:</span>
+                                                                <a class="reactionsBar-link" href="/BanQuanTri/BaiViet/Like?iMaBaiViet=@Model.MaBaiViet" data-cache="false" rel="nofollow">
+                                                                    <bdi>Thích (@Model.LuotThich)</bdi>
+                                                                </a>
+                                                            }
+                                                        }
                                                     </div>
-                                                    <footer class="message-footer">
-                                                        <div class="js-historyTarget message-historyTarget toggleTarget" data-href="trigger-href"></div>
-                                                    </footer>
+                                                    <!-- #endregion -->
                                                 </div>
                                             </div>
                                         </div>
@@ -324,19 +397,21 @@
                                                                     using (Html.BeginForm("XoaBinhLuan", "BaiViet", new { @iMaBinhLuan = item.MaBinhLuan, @strURL = Request.Url.ToString() }))
                                                                     {
                                                                         NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
-                                                                        if (tk.MaQuyen == 1)
+                                                                        if (tk.MaQuyen == 1) // admin thì có quyền xóa tất cả bình luận của thành viên
                                                                         {
-                                                                            <button type="submit" class="button--primary button button--icon rippleButton rippleButton">
+                                                                            <button type="submit" style="background-color:red" class="button--primary button button--icon rippleButton rippleButton">
                                                                                 <span class="button-text">Xóa</span>
                                                                                 <div class="ripple-container"></div>
-                                                                            </button>
+                                                                            </button><br />
+                                                                            <a href="/BanQuanTri/BaiViet/CapNhatBinhLuan?iMaBinhLuan=@item.MaBinhLuan" style="margin-top:5px" class="button--primary button button--icon rippleButton rippleButton">Sửa</a>
                                                                         }
-                                                                        else if (tk.TaiKhoan == item.TaiKhoan)
+                                                                        else if (tk.TaiKhoan == item.TaiKhoan) // còn lại thành viên chỉ được xóa hoặc cập nhật bình luận của thành viên đó
                                                                         {
-                                                                            <button type="submit" class="button--primary button button--icon rippleButton rippleButton">
+                                                                            <button type="submit" style="background-color:red" class="button--primary button button--icon rippleButton rippleButton">
                                                                                 <span class="button-text">Xóa</span>
                                                                                 <div class="ripple-container"></div>
-                                                                            </button>
+                                                                            </button><br />
+                                                                            <a href="/BanQuanTri/BaiViet/CapNhatBinhLuan?iMaBinhLuan=@item.MaBinhLuan" style="margin-top:5px" class="button--primary button button--icon rippleButton rippleButton">Sửa</a>
                                                                         }
                                                                     }
                                                                 }

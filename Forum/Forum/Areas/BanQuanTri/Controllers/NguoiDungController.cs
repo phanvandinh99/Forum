@@ -77,5 +77,16 @@ namespace Forum.Areas.BanQuanTri.Controllers
             db.SaveChanges();
             return RedirectToAction("ThanhCong", "ThongBao");
         }
+        //Bài viết đã Like
+        public ActionResult BaiVietDaLike()
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+            var like = db.LuotThiches.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().OrderByDescending(n=>n.NgayThich); // Thành viên
+            return View(like);
+        }
     }
 }

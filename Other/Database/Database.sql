@@ -9,10 +9,10 @@ create table DanhMuc
 	SoChuDe int default(0),
 )
 go
-insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Lập Trình', 0);
-insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Đời Sống', 0);
-insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Thể Thao', 0);
-insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Linh Tinh', 0);
+insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Lập Trình', 5);
+insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Đời Sống', 5);
+insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Thể Thao', 5);
+insert into DanhMuc(TenDanhMuc, SoChuDe) values (N'Linh Tinh', 5);
 go
 create table ChuDe
 (
@@ -79,11 +79,25 @@ create table NguoiDung
 	Foreign key(MaQuyen) references Quyen(MaQuyen),
 )
 go
+-- Người dùng ban quản trị (admin)
 insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
-values ('admin', 'abc123', N'Ban Quản', N'Trị', 0, '02/05/1999', 0,default, 0, 0, 1);
+values ('admin', 'admin', N'Ban Quản', N'Trị', 0, '02/05/1999', 0, default, 0, 0, 1);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('quantri', 'quantri', N'Quản', N'Trị', 0, '02/01/1995', 0, default, 0, 0, 1);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('Nhi', 'Nhi', N'Thanh', N'Nhi', 0, '09/12/1994', 0, default, 0, 0, 1);
 
+-- Người dùng thành viên
 insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
-values ('minh', 'minh', N'Phạm Nhật', N'Minh', 0, '02/05/1999', 0,default, 0, 0, 2);
+values ('thang', 'thang', N'Cao', N'Thắng', 0, '07/07/2000', 0,default, 0, 0, 2);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('nhung', 'nhung', N'Thùy', N'Nhung', 1, '12/11/1995', 0,default, 0, 0, 2);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('trang', 'trang', N'Kiều', N'Trang', 1, '12/12/1982', 0,default, 0, 0, 2);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('AnhThang', 'AnhThang', N'Anh', N'Thắng', 0, '11/11/1979', 0,default, 0, 0, 2);
+insert into NguoiDung(TaiKhoan, MatKhau, Ho, Ten, GioiTinh, NgaySinh, TrangThai, HinhAnh, DiemThanhTich, SoBaiViet, MaQuyen) 
+values ('minh', 'minh', N'Trần Ngọc', N'Minh', 0, '05/05/1992', 0,default, 0, 0, 2);
 go
 create table ViPham
 (
@@ -93,6 +107,12 @@ create table ViPham
 
 	Foreign key(TaiKhoan) references NguoiDung(TaiKhoan),
 )
+go
+insert into ViPham(NoiDungViPham, TaiKhoan) values (N'Đăng bài viết sai chủ đề', 'minh');
+insert into ViPham(NoiDungViPham, TaiKhoan) values (N'Bình luận bêu xấu admin', 'minh');
+insert into ViPham(NoiDungViPham, TaiKhoan) values (N'Không hoạt động đóng góp ý kiến cho diễn đàn', 'thang');
+insert into ViPham(NoiDungViPham, TaiKhoan) values (N'Đăng bài viết dùng từ genz, teencode', 'nhi');
+insert into ViPham(NoiDungViPham, TaiKhoan) values (N'Bình luận ảnh không liên quan đến chủ đề bài viết lập trình c', 'nhung');
 go
 create table BaiViet
 (
@@ -111,6 +131,14 @@ create table BaiViet
 	Foreign key(MaChuDe) references ChuDe(MaChuDe),
 	Foreign key(TaiKhoan) references NguoiDung(TaiKhoan),
 )
+go
+--insert into BaiViet (TenBaiViet, NoiDungBaiViet, NgayDang, NgayCapNhat, TrangThai, LuotThich, BinhLuan, LuotXem, MaChuDe, TaiKhoan)
+--values (N'TenBaiViet', N'NoiDung', '01/01/2021', '01/01/2021', 0, 5, 5, 20, 1, 'taikhoan');
+
+--insert into BaiViet (TenBaiViet, NoiDungBaiViet, NgayDang, NgayCapNhat, TrangThai, LuotThich, BinhLuan, LuotXem, MaChuDe, TaiKhoan)
+--values (N'Mình code chức năng thêm mới bài viết nhưng bị lỗi không thêm được? Anh chị nào giúp em với ạ! ', N'NoiDung', '01/01/2021', '01/01/2021', 0, 5, 5, 20, 1, 'Minh')
+
+
 go
 create table BinhLuan
 (
@@ -142,7 +170,9 @@ create table LuotThich
 (
 	MaBaiViet int,
 	TaiKhoan varchar(50),
-
+	primary key(MaBaiViet, TaiKhoan),
+	NgayThich datetime default(getdate()),
 	Foreign key(MaBaiViet) references BaiViet(MaBaiViet),
 	Foreign key(TaiKhoan) references NguoiDung(TaiKhoan),
 )
+select * from LuotThich

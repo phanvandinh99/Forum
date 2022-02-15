@@ -144,9 +144,9 @@
     <Compile Include="Models\ChuDe.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DatabaseForum.cs" />
+    <Compile Include="Models\LuotThich.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Quyen.cs" />
-    <Compile Include="Models\TraLoiBinhLuan.cs" />
     <Compile Include="Models\ViPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -669,6 +669,8 @@
     <Content Include="Assets\BanQuanTri\css\cssee5e.css" />
     <Content Include="Assets\BanQuanTri\css\cssfb87.css" />
     <Content Include="Assets\BanQuanTri\css\cssfca8.css" />
+    <Content Include="Assets\BanQuanTri\images\like1.png" />
+    <Content Include="Assets\BanQuanTri\images\Like2.png" />
     <Content Include="Assets\BanQuanTri\js\list.min.js" />
     <Content Include="Assets\BanQuanTri\js\themehouse\acui\defer.min0db4.js" />
     <Content Include="Assets\BanQuanTri\js\themehouse\acui\deferFab.min0db4.js" />
@@ -788,6 +790,8 @@
     <Content Include="Areas\BanQuanTri\Views\NguoiDung\CapNhat.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\BaiViet\BaiVietCanDuyet.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\BaiViet\ChiTietBaiVietCanDuyet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaiViet\CapNhatBinhLuan.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\NguoiDung\BaiVietDaLike.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

@@ -87,6 +87,8 @@ namespace Forum.Areas.BanQuanTri.Controllers
             db.SaveChanges();
             // Hiển thị bình luận
             ViewBag.BinhLuan = db.BinhLuans.Where(n => n.MaBaiViet == iMaBaiviet).OrderBy(n => n.MaBinhLuan).ToList();
+            // hiển thị danh sách người like
+            ViewBag.Like = db.LuotThiches.Where(n => n.MaBaiViet == iMaBaiviet).ToList();
             return View(baiViet);
         }
         // Thêm mới bình luận trong bài viết
@@ -121,6 +123,35 @@ namespace Forum.Areas.BanQuanTri.Controllers
             db.BinhLuans.Remove(binhLuan);
             db.SaveChanges();
             return Redirect(strURL);
+        }
+        // Cập nhật bình luận
+        public ActionResult CapNhatBinhLuan(int iMaBinhLuan)
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            var binhLuan = db.BinhLuans.SingleOrDefault(n => n.MaBinhLuan == iMaBinhLuan);
+            return View(binhLuan);
+        }
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken()]
+        public ActionResult CapNhatBinhLuan(BinhLuan model)
+        {
+            try
+            {
+                var binhLuan = db.BinhLuans.SingleOrDefault(n => n.MaBinhLuan == model.MaBinhLuan);
+                binhLuan.NoiDungBinhLuan = model.NoiDungBinhLuan;
+                db.SaveChanges();
+                ViewBag.ThongBao = "Cập Nhật Bình Luận Thành Công";
+                return View(binhLuan);
+            }
+            catch
+            {
+                ViewBag.ThongBao = "Cập Nhật Bình Luận Thất Bại";
+                var binhLuan = db.BinhLuans.SingleOrDefault(n => n.MaBinhLuan == model.MaBinhLuan);
+                return View(binhLuan);
+            }
         }
         // Bài Viết Của Bạn
         public ActionResult BaiVietCuaBan()
@@ -178,6 +209,44 @@ namespace Forum.Areas.BanQuanTri.Controllers
             db.BaiViets.Remove(baiViet);
             db.SaveChanges();
             return RedirectToAction("ThanhCong", "ThongBao");
+        }
+        // Like bài viết
+        public ActionResult Like(int iMaBaiViet)
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("TrangDangNhap", "DangNhap");
+            }
+            NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
+            // 1 người chỉ like 1 lượt
+            // Kiểm tra tài khoản đã like bài viết này hay chưa
+            var kiemTra = db.LuotThiches.SingleOrDefault(n=>n.MaBaiViet==iMaBaiViet &n.TaiKhoan==tk.TaiKhoan);
+            if(kiemTra==null) // chưa like bài viết này
+            {
+                LuotThich lt = new LuotThich();
+                lt.MaBaiViet = iMaBaiViet;
+                lt.TaiKhoan = tk.TaiKhoan;
+                lt.NgayThich = DateTime.Now;
+                db.LuotThiches.Add(lt);
+                // cộng thêm lượt thích trong bài viết
+                var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+                baiViet.LuotThich++;
+                db.SaveChanges();
+            }    
+            else // đã like bài viết này => hủy like
+            {
+                db.LuotThiches.Remove(kiemTra);
+                // cộng thêm lượt thích trong bài viết
+                var baiViet = db.BaiViets.SingleOrDefault(n => n.MaBaiViet == iMaBaiViet);
+                baiViet.LuotThich--;
+                db.SaveChanges();
+            }
+            // hiển thị danh sách người like
+            ViewBag.Like = db.LuotThiches.Where(n => n.MaBaiViet == iMaBaiViet).ToList();
+
+            return RedirectToAction("BaiViet", "BaiViet", new { iMaBaiviet = iMaBaiViet});
+
+            
         }
     }
 }

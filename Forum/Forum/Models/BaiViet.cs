@@ -13,6 +13,7 @@ namespace Forum.Models
         public BaiViet()
         {
             BinhLuans = new HashSet<BinhLuan>();
+            LuotThiches = new HashSet<LuotThich>();
         }
 
         [Key]
@@ -48,5 +49,8 @@ namespace Forum.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LuotThich> LuotThiches { get; set; }
     }
 }

@@ -6,21 +6,20 @@ namespace Forum.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("BinhLuan")]
-    public partial class BinhLuan
+    [Table("LuotThich")]
+    public partial class LuotThich
     {
         [Key]
-        public int MaBinhLuan { get; set; }
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaBaiViet { get; set; }
 
-        [Required]
-        public string NoiDungBinhLuan { get; set; }
-
-        public DateTime? NgayBinhLuan { get; set; }
-
-        public int? MaBaiViet { get; set; }
-
+        [Key]
+        [Column(Order = 1)]
         [StringLength(50)]
         public string TaiKhoan { get; set; }
+
+        public DateTime? NgayThich { get; set; }
 
         public virtual BaiViet BaiViet { get; set; }
 

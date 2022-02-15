@@ -85,64 +85,67 @@
                                 <div class="block-body">
                                     <div class="structItemContainer list">
                                         <div class="structItemContainer-group js-threadList">
-                                            @foreach (var item in DanhSachBaiViet)
-                                            {
-                                                <div class="structItem structItem--thread js-inlineModContainer js-threadListItem-75" data-author="Megan Bergner">
-                                                    <div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
-                                                        <ul class="structItem-statuses">
-                                                            <li>
-                                                                <i class="structItem-status structItem-status--solved" aria-hidden="true" title="Solved"></i>
-                                                                <span class="u-srOnly">Solved</span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="structItem-title" uix-href="/xf2/themes/threads/favorite-cookie.75/">
-                                                            <a href="/BanQuanTri/BaiViet/BaiViet?iMaBaiviet=@item.MaBaiViet" class="TenBaiViet" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">
-                                                                @item.TenBaiViet
-                                                            </a>
-                                                        </div>
-                                                        <div class="structItem-minor">
-                                                            <ul class="structItem-parts">
-                                                                <li class="structItem-startDate">
-                                                                    <a href="" rel="nofollow">
-                                                                        <time class="u-dt NgayDang" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">Lúc: @item.NgayDang</time>
-                                                                    </a>
+                                            @if (DanhSachBaiViet!= null)
+                                                                                    {
+                                                foreach (var item in DanhSachBaiViet)
+                                                {
+                                                    <div class="structItem structItem--thread js-inlineModContainer js-threadListItem-75" data-author="Megan Bergner">
+                                                        <div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+                                                            <ul class="structItem-statuses">
+                                                                <li>
+                                                                    <i class="structItem-status structItem-status--solved" aria-hidden="true" title="Solved"></i>
+                                                                    <span class="u-srOnly">Solved</span>
                                                                 </li>
                                                             </ul>
+                                                            <div class="structItem-title" uix-href="/xf2/themes/threads/favorite-cookie.75/">
+                                                                <a href="/BanQuanTri/BaiViet/BaiViet?iMaBaiviet=@item.MaBaiViet" class="TenBaiViet" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">
+                                                                    @item.TenBaiViet
+                                                                </a>
+                                                            </div>
+                                                            <div class="structItem-minor">
+                                                                <ul class="structItem-parts">
+                                                                    <li class="structItem-startDate">
+                                                                        <a href="" rel="nofollow">
+                                                                            <time class="u-dt NgayDang" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">Lúc: @item.NgayDang</time>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="structItem-cell structItem-cell--meta" title="First message reaction score: 0">
+                                                            <dl class="pairs pairs--justified">
+                                                                <dt>Lượt Xem</dt>
+                                                                <dd>@item.LuotXem</dd>
+                                                            </dl>
+                                                            <dl class="pairs pairs--justified">
+                                                                <dt>Bình Luận</dt>
+                                                                <dd>@item.BinhLuan</dd>
+                                                            </dl>
+                                                        </div>
+                                                        <div class="structItem-cell structItem-cell--latest ">
+                                                            <a rel="nofollow"><time class="structItem-latestDate u-dt" dir="auto">@string.Format("{0:dd/MM/yyyy}", item.NguoiDung.NgaySinh)</time></a>
+                                                            <div class="structItem-minor">
+                                                                <a href="/xf2/themes/members/dalton-prock.1/" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip" id="js-XFUniqueId14">
+                                                                    @if (item.NguoiDung.MaQuyen == 1)
+                                                                    {
+                                                                        <span class="username--staff username--moderator username--admin HoTen" style="color:red">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span class="username--staff username--moderator username--admin HoTen">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
+                                                                    }
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
+                                                            <div class="structItem-iconContainer">
+                                                                <a href="/xf2/themes/members/megan-bergner.11/" class="avatar avatar--s avatar--default avatar--default--dynamic" data-user-id="11" data-xf-init="member-tooltip" style="background-color: #c0ca33; color: #f4ff81" id="js-XFUniqueId11">
+                                                                    <span class="avatar-u11-s" role="img" aria-label="Megan Bergner">@item.NguoiDung.Ten.Substring(0, 1)</span>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="structItem-cell structItem-cell--meta" title="First message reaction score: 0">
-                                                        <dl class="pairs pairs--justified">
-                                                            <dt>Lượt Xem</dt>
-                                                            <dd>@item.LuotXem</dd>
-                                                        </dl>
-                                                        <dl class="pairs pairs--justified">
-                                                            <dt>Bình Luận</dt>
-                                                            <dd>@item.BinhLuan</dd>
-                                                        </dl>
-                                                    </div>
-                                                    <div class="structItem-cell structItem-cell--latest ">
-                                                        <a rel="nofollow"><time class="structItem-latestDate u-dt" dir="auto">@string.Format("{0:dd/MM/yyyy}", item.NguoiDung.NgaySinh)</time></a>
-                                                        <div class="structItem-minor">
-                                                            <a href="/xf2/themes/members/dalton-prock.1/" class="username " dir="auto" data-user-id="1" data-xf-init="member-tooltip" id="js-XFUniqueId14">
-                                                                @if (item.NguoiDung.MaQuyen == 1)
-                                                                {
-                                                                    <span class="username--staff username--moderator username--admin HoTen" style="color:red">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span class="username--staff username--moderator username--admin HoTen">@item.NguoiDung.Ho @item.NguoiDung.Ten</span>
-                                                                }
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="structItem-cell structItem-cell--icon structItem-cell--iconEnd">
-                                                        <div class="structItem-iconContainer">
-                                                            <a href="/xf2/themes/members/megan-bergner.11/" class="avatar avatar--s avatar--default avatar--default--dynamic" data-user-id="11" data-xf-init="member-tooltip" style="background-color: #c0ca33; color: #f4ff81" id="js-XFUniqueId11">
-                                                                <span class="avatar-u11-s" role="img" aria-label="Megan Bergner">@item.NguoiDung.Ten.Substring(0, 1)</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                }
                                             }
                                         </div>
                                     </div>

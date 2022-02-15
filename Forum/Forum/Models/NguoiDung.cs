@@ -14,7 +14,7 @@ namespace Forum.Models
         {
             BaiViets = new HashSet<BaiViet>();
             BinhLuans = new HashSet<BinhLuan>();
-            TraLoiBinhLuans = new HashSet<TraLoiBinhLuan>();
+            LuotThiches = new HashSet<LuotThich>();
             ViPhams = new HashSet<ViPham>();
         }
 
@@ -45,6 +45,7 @@ namespace Forum.Models
         public string HinhAnh { get; set; }
 
         public int? DiemThanhTich { get; set; }
+
         public int? SoBaiViet { get; set; }
 
         public int? MaQuyen { get; set; }
@@ -55,10 +56,10 @@ namespace Forum.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 
-        public virtual Quyen Quyen { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TraLoiBinhLuan> TraLoiBinhLuans { get; set; }
+        public virtual ICollection<LuotThich> LuotThiches { get; set; }
+
+        public virtual Quyen Quyen { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ViPham> ViPhams { get; set; }
