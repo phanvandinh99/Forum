@@ -1,0 +1,116 @@
+﻿@using Forum.Models;
+@model IEnumerable<ViPham>
+@{
+    ViewBag.Title = "Vi Phạm Của Ban";
+    Layout = "~/Areas/BanQuanTri/Views/Shared/_Layout.cshtml";
+}
+<div class="p-body" id="DanhSachViPham">
+    <div class="p-body-inner ">
+        <!--XF:EXTRA_OUTPUT-->
+        <div class="breadcrumb ">
+            <div class="pageContent">
+                <ul class="p-breadcrumbs " itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="/BanQuanTri/Home/Index" itemprop="item">
+                            <span itemprop="name">Trang Chủ</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                        <a href="#" itemprop="item">
+                            <span itemprop="name">Danh Sách Vi Phạm</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ul>
+                <input type="text" placeholder="Tìm kiếm..." class="search" />
+            </div>
+        </div>
+        <div uix_component="MainContainer" class="uix_contentWrapper">
+            <div class="p-body-main  ">
+                <div uix_component="MainContent" class="p-body-content">
+                    <!-- ABOVE MAIN CONTENT -->
+                    <div class="p-body-pageContent">
+                        <div class="block " data-xf-init="" data-type="thread" data-href="/xf2/themes/inline-mod/">
+                            <div class="block-outer"></div>
+                            <div class="block-container uix_discussionList">
+                                <h2 class="block-tabHeader tabs">
+                                    <div class="hScroller" data-xf-init="h-scroller">
+                                        <span class="hScroller-scroll is-calculated" style="margin-bottom: -47px;">
+                                            <a href="/xf2/themes/forums/share-your-opinion.35/" class="tabs-tab is-active rippleButton">
+                                                Danh Sách Vi Phạm
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                            <i class="hScroller-action hScroller-action--end" aria-hidden="true"></i><i class="hScroller-action hScroller-action--start" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="tabs-extra tabs-extra--minor">
+                                        <a class="menuTrigger" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">Filters</a>
+                                        <div class="menu menu--wide" data-menu="menu" aria-hidden="true" data-href="" data-load-target=".js-filterMenuBody">
+                                            <div class="menu-content">
+                                                <h4 class="menu-header">Show only:</h4>
+                                                <div class="js-filterMenuBody">
+                                                    <div class="menu-row">Loading…</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </h2>
+                                <div class="block-body">
+                                    <div class="structItemContainer">
+                                        <div class="structItemContainer-group js-threadList list">
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="structItem structItem--thread js-inlineModContainer js-threadListItem-75" data-author="Megan Bergner">
+                                                    <div class="structItem-cell structItem-cell--main" data-xf-init="touch-proxy">
+                                                        <div class="structItem-title" uix-href="/xf2/themes/threads/favorite-cookie.75/">
+                                                            <a class="TenChuDe" data-tp-primary="on" data-xf-init="preview-tooltip" data-preview-url="/xf2/themes/threads/favorite-cookie.75/preview" id="js-XFUniqueId12">@item.NoiDungViPham</a>
+                                                        </div>
+                                                        <div class="structItem-minor">
+                                                            <ul class="structItem-parts">
+                                                                <li>
+                                                                    <a class="username " dir="auto" data-user-id="11" data-xf-init="member-tooltip" id="js-XFUniqueId13">
+                                                                    </a>
+                                                                </li>
+                                                                @*<li class="structItem-startDate">
+                                                                        <a href="" rel="nofollow">
+                                                                            <time class="u-dt" dir="auto" datetime="2020-10-07T09:35:15-0500" data-time="1602081315">@item.NgayDang</time>
+                                                                        </a>
+                                                                    </li>*@
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="structItem-cell structItem-cell--meta" title="First message reaction score: 0">
+                                                        <dl class="pairs pairs--justified">
+                                                            <a href="/BanQuanTri/BaiViet/BaiVietChuDe?iMaChuDe=@item.MaChuDe">Xem</a>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="structItem-cell structItem-cell--latest ">
+                                                        <a href="/BanQuanTri/ChuDe/XemChiTiet?iMaChuDe=@item.MaChuDe">Chi Tiết</a> |
+                                                        <a href="/BanQuanTri/ChuDe/Xoa?iMaChuDe=@item.MaChuDe">Xóa</a> |
+                                                        <a href="/BanQuanTri/ChuDe/CapNhat?iMaChuDe=@item.MaChuDe">Cập Nhật</a>
+                                                    </div>*@
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="pagination"></ul>
+                    <!-- BELOW MAIN CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #region Script lọc -->
+<script type="text/javascript">
+    var options = {
+        valueNames: ['TenChuDe', 'TenDanhMuc'],
+        page: 8,
+        pagination: true
+    };
+    var userList = new List('DanhSachViPham', options);
+</script>
+<!-- #endregion -->

@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BanQuanTri\BanQuanTriAreaRegistration.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\BaiVietController.cs" />
+    <Compile Include="Areas\BanQuanTri\Controllers\BaoCaoController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\BanQuanTri\Controllers\DanhMucController.cs" />
@@ -794,6 +795,8 @@
     <Content Include="Areas\BanQuanTri\Views\NguoiDung\BaiVietDaLike.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\NguoiDung\BinhLuanGanDay.cshtml" />
     <Content Include="Areas\BanQuanTri\Views\BaiViet\CapNhatBaiViet.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaoCao\ThemMoi.cshtml" />
+    <Content Include="Areas\BanQuanTri\Views\BaoCao\DanhSachViPham.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

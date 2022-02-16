@@ -138,6 +138,9 @@
                                                                     NguoiDung tk = (NguoiDung)Session["TaiKhoan"];
                                                                     if (tk.MaQuyen == 1)// admin
                                                                     {
+                                                                        <a href="/BanQuanTri/BaoCao/ThemMoi?sTaiKhoan=@Model.TaiKhoan" rel="nofollow" style="color:red">
+                                                                            [Báo Cáo]
+                                                                        </a>
                                                                         <a href="/BanQuanTri/BaiViet/XoaBaiviet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
                                                                             [Xóa]
                                                                         </a>
@@ -145,7 +148,7 @@
                                                                             [Cập Nhật]
                                                                         </a>
                                                                     }
-                                                                    if (tk.TaiKhoan == Model.TaiKhoan)
+                                                                    else if (tk.TaiKhoan == Model.TaiKhoan)
                                                                     {
                                                                         <a href="/BanQuanTri/BaiViet/XoaBaiviet?iMaBaiViet=@Model.MaBaiViet" rel="nofollow">
                                                                             [Xóa]
@@ -392,16 +395,6 @@
                                                                     </article>
                                                                 </div>
                                                             </div>
-                                                            <div class="reactionsBar js-reactionsList is-active">
-                                                                <ul class="reactionSummary">
-                                                                    <li><span class="reaction reaction--small reaction--1" data-reaction-id="1"><i aria-hidden="true"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="reaction-sprite js-reaction" alt="Like" title="Like"></span></li>
-                                                                </ul>
-                                                                <span class="u-srOnly">Reactions:</span>
-                                                                @*<a class="reactionsBar-link" href="/xf2/themes/posts/521/reactions" data-xf-click="overlay" data-cache="false" rel="nofollow"><bdi>demo</bdi></a>*@
-                                                            </div>
-                                                            <footer class="message-footer">
-                                                                <div class="js-historyTarget message-historyTarget toggleTarget" data-href="trigger-href"></div>
-                                                            </footer>
                                                         </div>
                                                     </div>
                                                     <div class="message-cell message-cell--vote">

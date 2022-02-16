@@ -24,7 +24,6 @@ namespace Forum.Areas.BanQuanTri.Controllers
             ViewBag.BaiViet = db.BaiViets.Count();
             ViewBag.ThanhVien = db.NguoiDungs.Where(n => n.MaQuyen == 2).Count();
             ViewBag.BanQuanTri = db.NguoiDungs.Where(n => n.MaQuyen == 1).Count();
-
             #endregion
 
             return View();
@@ -39,6 +38,15 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             var danhMuc = db.DanhMucs.SingleOrDefault(n => n.MaDanhMuc == iMaDanhMuc);
             ViewBag.ChuDe = db.ChuDes.Where(n => n.MaDanhMuc == iMaDanhMuc).ToList();
+
+            ViewBag.BaiVietMoi = db.BaiViets.Where(n => n.TrangThai == 0).ToList().OrderByDescending(n => n.MaBaiViet).Take(5);
+            #region Thống kê
+            ViewBag.DanhMuc = db.DanhMucs.Count();
+            ViewBag.ChuDes = db.ChuDes.Count();
+            ViewBag.BaiViet = db.BaiViets.Count();
+            ViewBag.ThanhVien = db.NguoiDungs.Where(n => n.MaQuyen == 2).Count();
+            ViewBag.BanQuanTri = db.NguoiDungs.Where(n => n.MaQuyen == 1).Count();
+            #endregion
             return View(danhMuc);
         }
         // Hiển thị bài viết mới

@@ -47,6 +47,11 @@ namespace Forum.Areas.BanQuanTri.Controllers
                     ModelState.AddModelError("", "Tài khoản của bạn đã bị khóa !");
                     return View();
                 }
+                else if ((db.ViPhams.Where(n => n.TaiKhoan == tk.TaiKhoan).ToList().Count()) > 3)
+                {
+                    ModelState.AddModelError("", "Tài khoản của bạn đã vi phạm nội quy diễn đàn => khóa vĩnh viễn !");
+                    return View();
+                }
                 else
                 {
                     Session["TaiKhoan"] = tk;
@@ -60,7 +65,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             Session["TaiKhoan"] = null;
             return RedirectToAction("TrangDangNhap", "DangNhap");
-        }  
+        }
         // Đăng ký tài khoản
         public ActionResult DangKy()
         {
@@ -97,7 +102,7 @@ namespace Forum.Areas.BanQuanTri.Controllers
         {
             var nguoiDung = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == staiKhoan);
             return View(nguoiDung);
-        } 
+        }
         [HttpPost]
         public ActionResult CapNhat(NguoiDung model)
         {

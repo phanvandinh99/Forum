@@ -35,7 +35,7 @@
                     @using (Ajax.BeginForm("TrangDangNhap", "DangNhap", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "ThongBao" }))
                     {
                         <div class="p-body-pageContent">
-                            <div id="ThongBao" class="ThongBao">
+                            <div id="ThongBao" class="ThongBao" style="none; color:red">
                                 @Html.AntiForgeryToken()
                                 @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
                             </div>
